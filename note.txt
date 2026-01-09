@@ -1,0 +1,5 @@
+for i in test-this*
+do
+    mv "$i" "${i/test-this/foo}"
+done
+

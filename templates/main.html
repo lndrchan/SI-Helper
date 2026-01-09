@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container-fluid">
+	<div class="row main-container">
+		<div class="col-md-3">
+			<div class="left-bar">
+				<h3>
+					Fear Cards
+				</h3>
+				<img alt="Fear deck" src="{{ url_for('static', filename='assets/fear/0.png') }}" class="game-card game-card-side">
+				<div style="text-align: center">
+					Earned this turn: <span class="badge badge-primary badge-pill">2</span>
+				</div>
+
+				<hr>
+
+				<div class="card fear-panel">
+					<h5 class="card-header">
+						Earned fear
+					</h5>
+					<div class="card-body">
+						<div class="progress">
+							<div class="progress-bar"
+								id='fear-progress'
+								role="progressbar"
+								style="width: 0%"
+								aria-valuenow="0"
+								aria-valuemin="0"
+								aria-valuemax="8">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<button type="button" class="btn btn-outline-primary" style="width:100%;" id='btn-add-fear'>
+					Generate fear
+				</button>
+			</div>
+
+		</div>
+		<div class="col-md-9">
+			<div class="row main-area">
+				<div class="col-md-3">
+					<div class="list-group phase-list">
+						<div class="list-group-item">
+
+							<h3 class="phase-list-title">Spirit Phase</h3>
+							<ul>
+								<li>Growth options</li>
+								<li>Gain energy</li>
+								<li>Choose and pay for cards</li>
+							</ul>
+						</div>
+						<div class="list-group-item">
+							<h3 class="phase-list-title">Fast Powers</h3>
+						</div>
+						<div class="list-group-item">
+							<h3 class="phase-list-title">Blighted Island Effect</h3>
+						</div>
+						<div class="list-group-item">
+							<h3 class="phase-list-title">Events</h3>
+						</div>
+						<div class="list-group-item d-flex justify-content-between align-items-center">
+							<h3 class="phase-list-title">Fear Cards</h3>
+							<span class="badge badge-primary badge-pill">2</span>
+						</div>
+						<div class="list-group-item">
+							<h3 class="phase-list-title">Invader Phase</h3>
+							<ul>
+								<li>Ravage</li>
+								<li>Build</li>
+								<li>Explore</li>
+							</ul>
+						</div>
+						<div class="list-group-item">
+							<h3 class="phase-list-title">Slow Powers</h3>
+						</div>
+
+					</div>
+					<button type="button" class="btn btn-outline-primary" style="width:100%;" id="btn-next-phase">
+						Next step
+					</button>
+				</div>
+				<div class="col-md-6 main-card-display" id="main-card-display">
+					<img alt="Bootstrap Image Preview" src="{{ url_for('static', filename='assets/fear/0.png') }}" class="game-card">
+				</div>
+				<div class="col-md-3">
+					<div class="right-bar">
+						<h3>
+							Current Terror Level: {{ terror_level }}
+						</h3>
+						<hr>
+						<h3>
+							Current Event for Turn
+						</h3><img alt="Bootstrap Image Preview" src="/img/sports-q-c-140-140-3.jpg">
+					</div>
+				</div>
+			</div>
+			<div class="row invader-area">
+				<div class="col-md-1">
+				</div>
+
+				<div class="col-md-2 invader-card-display">
+					<div class="invader-card-label">
+						Discard
+					</div>
+				</div>
+
+				<div class="col-md-1">
+				</div>
+
+				<div class="col-md-2 invader-card-display">
+					<div class="invader-card-label">
+						Ravage
+					</div>
+
+					<img src="{{ url_for('static', filename='assets/invader/test.png') }}" class="game-card game-card-invader">
+				</div>
+
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-2 invader-card-display">
+					<div class="invader-card-label">
+						Build
+					</div>
+					<img src="{{ url_for('static', filename='assets/invader/test.png') }}" class="game-card game-card-invader">
+				</div>
+
+				<div class="col-md-1">
+				</div>
+
+				<div class="col-md-2 invader-card-display">
+					<div class="invader-card-label">
+						Explore
+					</div>
+					<img src="{{ url_for('static', filename='assets/invader/test.png') }}" class="game-card game-card-invader">
+				</div>
+
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
