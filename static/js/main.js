@@ -31,23 +31,18 @@ $( document ).ready(function() {
         setPhase(0);
         phaseListLength = phaseList.length;
     }
-    if (fearProgress) {
-
-    }
 
     // Add click handler to the button
 
-    $('#btn-next-phase').click
+    $('#btn-next-phase').on('click', function() {
+        nextStep();
+    });
 
-    nextPhaseBtn = document.getElementById('btn-next-phase');
-    if (nextPhaseBtn) {
-        nextPhaseBtn.addEventListener('click', nextStep);
-    }
+    $('#btn-add-fear').on('click', function() {
+        addFear();
+    });
 
-    addFearBtn = document.getElementById('btn-add-fear');
-    if (addFearBtn) {
-        addFearBtn.addEventListener('click', addFear);
-    }
+
 
     leftBarFearBadge = document.getElementById('left-bar-fear-badge');
     phaseListFearBadge = document.getElementById('phase-list-fear-badge');
