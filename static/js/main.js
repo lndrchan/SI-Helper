@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     addFearBtn = document.getElementById('btn-add-fear');
-    console.log(addFearBtn);
     if (addFearBtn) {
         addFearBtn.addEventListener('click', addFear);
     }
@@ -123,7 +122,7 @@ function drawCard(type) {
         cardDisplay.innerHTML = '';
         cardDisplay.appendChild(img);
 
-        console.log(`Drew ${type} card: ${random}.png`);
+        console.log(`Drew ${type} card: ${random}.jpg`);
     }
 }
 
