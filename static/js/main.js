@@ -150,7 +150,7 @@ function drawCard(type) {
         cardDisplay.innerHTML = '';
         cardDisplay.appendChild(img);
 
-        console.log(`Drew ${type} card: ${random}.jpg`);
+        console.log(`drawCard: ${type}, ${random}.jpg`);
     }
 }
 
@@ -166,5 +166,5 @@ function setPhase(index) {
     phaseList[phase].classList.add(activeListItemClass);
 
     const currentPhaseName = phaseList[phase].querySelector('.phase-list-title').textContent;
-    console.log('Set phase to be ', currentPhaseName);
+    console.log('setPhase: ', currentPhaseName);
 }
