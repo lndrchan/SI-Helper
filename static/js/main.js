@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click handler to the button
     nextPhaseBtn = document.getElementById('btn-next-phase');
     if (nextPhaseBtn) {
-        nextPhaseBtn.addEventListener('click', nextPhase);
+        nextPhaseBtn.addEventListener('click', nextStep);
     }
 
     addFearBtn = document.getElementById('btn-add-fear');
@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     leftBarFearBadge = document.getElementById('left-bar-fear-badge');
     phaseListFearBadge = document.getElementById('phase-list-fear-badge');
-    console.log(phaseListFearBadge);
     if (leftBarFearBadge && phaseListFearBadge) {
         updateFearBadge();
     }
@@ -56,33 +55,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Add click handler to the button
-function nextPhase() {
+function nextStep() {
+
+    if (phase === 4) {
+        if (earnedFearCards > 0) {
+            drawCard('fear');
+            return;
+        }
+    }
+
     setPhase((phase + 1) % phaseListLength);
 
-    // Optional: Log the current phase name for debugging
     const currentPhaseName = phaseList[phase].querySelector('.phase-list-title').textContent;
     console.log('Current Phase:', currentPhaseName);
 
-    // Check if we're at phase index 4 (Events phase)
     if (phase === 3) {
         drawCard('event');
     }
-    else if (phase === 4) {
-        drawCard('fear');
+
+    if (earnedFearCards === 0) {
+        setPhase((phase + 1) % phaseListLength);
     }
 }
 
 function addFear() {
     fear ++;
-    console.log('Current fear: ' + fear);
 
-    if (fear >= fearMax || fear < 0) {
-        fear = 0;
-    }
     if (fear === fearMax) {
         earnFearCard();
     }
 
+    if (fear >= fearMax || fear < 0) {
+        fear = 0;
+    }
+    
     fearProgress.setAttribute('style', 'width: ' + fear / fearMax * 100 + '%');
     fearProgress.innerHTML = fear + ' / ' + fearMax;
 }
@@ -99,11 +105,13 @@ function removeFear() {
 
 function earnFearCard() {
     earnedFearCards ++;
+    console.log('Earned fear card. Currently ' + earnedFearCards + ' earned. ')
     updateFearBadge();
 }
 
 function updateFearBadge() {
-    if (earnFearCard === 0) {
+    console.log('Update badge to show ' + earnedFearCards + ' fear cards. ')
+    if (earnedFearCards == 0) {
         phaseListFearBadge.classList.add('hidden');
     }
     else {
@@ -131,7 +139,7 @@ function drawCard(type) {
                 random = Math.floor(Math.random() * 51) + 1;
                 img.src = `/static/assets/fear/${random}.jpg`;
 
-                earnFearCard--;
+                earnedFearCards--;
                 updateFearBadge();
 
                 break;
