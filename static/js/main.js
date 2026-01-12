@@ -43,9 +43,8 @@ $( document ).ready(function() {
     });
 
 
-
-    leftBarFearBadge = document.getElementById('left-bar-fear-badge');
-    phaseListFearBadge = document.getElementById('phase-list-fear-badge');
+    leftBarFearBadge = $('#left-bar-fear-badge');
+    phaseListFearBadge = $('#phase-list-fear-badge');
     if (leftBarFearBadge && phaseListFearBadge) {
         updateFearBadge();
     }
@@ -66,7 +65,7 @@ function nextStep() {
             return;
         }
         else if (earnedFearCards === 0) {
-        setPhase((phase + 1) % phaseListLength);
+            setPhase((phase + 1) % phaseListLength);
         }
     }
 
