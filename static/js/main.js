@@ -24,7 +24,7 @@ var fearMax = 8;
 $( document ).ready(function() {
 
     phaseList = $('.list-group-item');
-    fearProgress = document.getElementById('fear-progress');
+    fearProgress = $('#fear-progress');
 
     // Highlight the first phase on page load
     if (phaseList.length > 0) {
