@@ -37,7 +37,7 @@ $( document ).ready(function() {
 
     // Add click handler to the button
 
-    $('#btn-next-phase')
+    $('#btn-next-phase').on('click',)
 
     nextPhaseBtn = document.getElementById('btn-next-phase');
     if (nextPhaseBtn) {
