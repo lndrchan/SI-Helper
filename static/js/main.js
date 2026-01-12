@@ -14,7 +14,8 @@ var phaseList = null;
 var phaseListLength = 0;
 
 var fearProgress = null;
-var fearBadges = null;
+var leftBarFearBadge = null;
+var phaseListFearBadge = null;
 var fear = 0;
 var earnedFearCards = 0;
 var fearMax = 8;
@@ -45,7 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
         addFearBtn.addEventListener('click', addFear);
     }
 
-    fearBadges = document.querySelectorAll('fear-badge');
+    leftBarFearBadge = document.getElementById('left-bar-fear-badge');
+    phaseListFearBadge = document.getElementById('fear-badge')
 });
 
 
@@ -93,9 +95,20 @@ function removeFear() {
 
 function earnFearCard() {
     earnedFearCards ++;
-    for (badge in fearBadges) {
-        badge.innerHTML = earnFearCard;
+    updateFearBadge();
+}
+
+function updateFearBadge() {
+    if (earnFearCard === 0) {
+        phaseListFearBadge.classList.add('hidden');
     }
+    else {
+        phaseListFearBadge.classList.remove('hidden');
+    }
+
+    leftBarFearBadge.innerHTML = earnFearCard;
+    phaseListFearBadge.innerHTML = earnFearCard;
+
 }
 
 // Function to draw and display a random card
@@ -113,6 +126,10 @@ function drawCard(type) {
             case 'fear':
                 random = Math.floor(Math.random() * 51) + 1;
                 img.src = `/static/assets/fear/${random}.jpg`;
+
+                earnFearCard--;
+                updateFearBadge();
+
                 break;
             case 'event':
                 random = Math.floor(Math.random() * 58 + 1);
