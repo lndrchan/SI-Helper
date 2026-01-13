@@ -8,6 +8,8 @@
 // 6: Slow power
 // 7: time passes
 
+const { event } = require("jquery");
+
 var phase = 0;
 
 var phaseList = null;
@@ -43,6 +45,9 @@ var state = [];
 
 // Initialisations
 jQuery(function() {
+
+    fearSeq = generateSeq(50);
+    eventSeq = generateSeq(62);
 
     phaseList = $('#phase-list');
     fearProgress = $('#fear-progress');
