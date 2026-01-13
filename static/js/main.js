@@ -217,7 +217,9 @@ function generateInvaderSeq(levelSeq) {
 
     let level1 = ['1w', '1s', '1j', '1m'];
     let level2 = ['2w', '2s', '2j', '2m', '2c'];
-    let level3 = []
+    let level3 = ['3js', '3jw', '3mj', '3mw', '3sm', '3sw'];
+
+    invaderSeq = [];
 
     for (level in levelSeq) {
 
