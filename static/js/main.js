@@ -214,7 +214,9 @@ function clearCardDisplay() {
 }
 
 function generateInvaderSeq(levelSeq) {
+
     
+
     for (level in levelSeq) {
 
     }
