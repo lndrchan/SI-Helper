@@ -223,7 +223,13 @@ function generateInvaderSeq(levelSeq) {
 
     for (level in levelSeq) {
         if (level === 1) {
-            invaderSeq.push(level1[Math.floor(Math.random() * 4)])
+            invaderSeq.push(level1[Math.floor(Math.random() * 4)]);
+        } 
+        else if (level === 2) {
+            invaderSeq.push(level2[Math.floor(Math.random() * 5)]);
+        }
+        else if (level === 3) {
+            invaderSeq.push(level3[Math.floor(Math.random() * 6)]);
         }
     }
 }
