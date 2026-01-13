@@ -178,7 +178,7 @@ function drawCard(type) {
         clearCardDisplay();
         cardDisplay.append(img);
 
-        console.log(`drawCard: ${type}, ${random}.jpg`);
+        console.log(`drawCard: ${type}`);
     }
 }
 
