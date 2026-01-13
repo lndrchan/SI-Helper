@@ -35,6 +35,8 @@ var cardDisplay = null;
 
 var invaderLevelSeq = [1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3];
 var invaderSeq = [];
+var fearSeq = [];
+var eventSeq = [];
 
 // To store serialised game state for gamesaves persisting between sessions
 var state = [];
@@ -61,7 +63,7 @@ jQuery(function() {
     phaseListFearBadge = $('#phase-list-fear-badge');
     updateFearBadge();
 
-    var cardDisplay = $('#main-card-display');
+    cardDisplay = $('#main-card-display');
 
     setPhase(0);
 });
