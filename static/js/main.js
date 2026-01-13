@@ -31,8 +31,6 @@ var fear = 0;
 var earnedFearCards = 0;
 var fearMax = 8;
 
-var cardDisplay = null;
-
 var invaderLevelSeq = [1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3];
 var invaderSeq = [];
 
@@ -61,7 +59,7 @@ jQuery(function() {
     phaseListFearBadge = $('#phase-list-fear-badge');
     updateFearBadge();
 
-    cardDisplay = $('#main-card-display');
+    var cardDisplay = $('#main-card-display');
 
     setPhase(0);
 });
