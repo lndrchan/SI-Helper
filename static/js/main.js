@@ -50,6 +50,7 @@ jQuery(function() {
 
     fearSeq = generateSeq(50);
     eventSeq = generateSeq(62);
+    generateInvaderSeq();
 
     phaseList = $('#phase-list');
     fearProgress = $('#fear-progress');
@@ -248,4 +249,5 @@ function generateSeq(n) {
         output[n] = orderedArray[random];
         orderedArray.splice(random, 1);
     }
+    return output;
 }
