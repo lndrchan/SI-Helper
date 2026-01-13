@@ -38,7 +38,9 @@ var cardDisplay = null;
 var invaderLevelSeq = [1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3];
 var invaderSeq = [];
 var fearSeq = [];
+var fearSeqIndex = 0;
 var eventSeq = [];
+var eventSeqIndex = 0;
 
 // To store serialised game state for gamesaves persisting between sessions
 var state = [];
