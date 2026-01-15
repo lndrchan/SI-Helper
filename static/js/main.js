@@ -59,7 +59,8 @@ jQuery(function() {
 
     // Logic about game setup. 
 
-    // If localstorage info present, read them
+    // If localstorage info present, read them via init(). Fill in blanks by init generation. 
+    init()
 
     // If no localstorage info, initiate setup popup
     
