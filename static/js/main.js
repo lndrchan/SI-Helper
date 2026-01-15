@@ -378,7 +378,9 @@ function updateInvaderBadge(showExplore) {
 
     for (let i = 0; i < 3; i++) {
 
-        level
+        //Explore badge first
+        let levelIndex = turn - i;
+        level = invaderLevelSeq[turn - i];
 
         if (i === 0 && !showExplore) {
             exploreBadge.append(generateBadge('u'));
