@@ -19,7 +19,7 @@ var phaseListDict = {
     2: 'Blighted Island Effect',
     3: 'Events',
     4: 'Fear Cards',
-    5: 'Invader Phase   <ul><li>Ravage</li><li>Build</li><li>Explore</li></ul> </div>',
+    5: 'Invader Phase',
     6: 'Slow Powers',
     7: 'Time Passes'
 };
@@ -277,8 +277,8 @@ function setPhase(index) {
         else if (phaseIndex === 5) {
             $('<ul></ul>')
                 .append('<li>Ravage: <span class="badge" id="phase-list-ravage-badge"> </span> </li>')
-                .append('<li>Build: </li>')
-                .append('<li>Explore: </li>')
+                .append('<li>Build: <span class="badge" id="phase-list-build-badge"> </span> </li>')
+                .append('<li>Explore: <span class="badge" id="phase-list-explore-badge"> </span> </li>')
         }
 
         listItem.appendTo(phaseList);
