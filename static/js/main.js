@@ -51,6 +51,8 @@ var eventSeq = Array(62);
 var eventSeqIndex = 0;
 
 var ls = window.localStorage;
+// ls.getItem('key');
+// ls.setItem('key', 'value');
 
 // Initialisations
 jQuery(function() {
