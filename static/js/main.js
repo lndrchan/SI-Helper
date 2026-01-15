@@ -365,7 +365,7 @@ function generateBadge(terrain) {
             b.html('Jungle');
             break;
         case 'm': 
-            b.attr('background-color', '$yellow-200');
+            b.attr('background-color', '$gray-600');
             b.html('Mountain');
             break;
         case 's': 
