@@ -276,7 +276,7 @@ function setPhase(index) {
         }
         else if (phaseIndex === 5) {
             $('<ul></ul>')
-                .append('<li>Ravage: <></li>')
+                .append('<li>Ravage: <span class= id="phase-list-ravage-badge"> </span> </li>')
                 .append('<li>Build: </li>')
                 .append('<li>Explore: </li>')
         }
