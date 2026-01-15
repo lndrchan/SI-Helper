@@ -282,6 +282,7 @@ function setPhase(index) {
                 .appendTo(listItem);
         }
 
+        // Update variables to newly generated phase list DOM
         ravageBadge = $('#phase-list-ravage-badge');
         buildBadge = $('#phase-list-build-badge');
         exploreBadge = $('#phase-list-explore-badge');
