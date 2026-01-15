@@ -99,6 +99,10 @@ jQuery(function() {
     
 });
 
+function init() {
+    
+}
+
 function nextStep() {
 
     // Check before phase advance: if at fear card phase and still has unresolved fear card, 
