@@ -395,11 +395,11 @@ function generateBadge(terrain) {
     
     switch (terrain) {
         case 'j': 
-            b.attr('background-color', '$green-600');
+            b.attr('background-color', '#146c43');
             b.html('Jungle');
             break;
         case 'm': 
-            b.attr('background-color', '$gray-600');
+            b.attr('background-color', '#111111');
             b.html('Mountain');
             break;
         case 's': 
