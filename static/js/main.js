@@ -257,6 +257,8 @@ function setPhase(index) {
         phaseListHTML += '</div>';
     }
 
+    
+
     phaseList.html(phaseListHTML);
 
     updateFearBadge();
