@@ -236,8 +236,6 @@ function setPhase(index) {
         clearCardDisplay();
     }
 
-    let phaseListHTML = '';
-
     phase = index;
     phase = 0;
 
@@ -279,16 +277,12 @@ function setPhase(index) {
                 .append('<li>Ravage: <span class="badge" id="phase-list-ravage-badge"> </span> </li>')
                 .append('<li>Build: <span class="badge" id="phase-list-build-badge"> </span> </li>')
                 .append('<li>Explore: <span class="badge" id="phase-list-explore-badge"> </span> </li>')
+                .appendTo(listItem);
         }
 
         listItem.appendTo(phaseList);
 
     }   
-    
-
-
-
-    phaseList.html(phaseListHTML);
 
     updateFearBadge();
 }
