@@ -57,6 +57,13 @@ var ls = window.localStorage;
 // Initialisations
 jQuery(function() {
 
+    // Logic about game setup. 
+
+    // If 
+    
+});
+
+function init() {
     fearSeq = generateSeq(50);
     eventSeq = generateSeq(62);
     generateInvaderSeq(invaderLevelSeq);
@@ -96,11 +103,6 @@ jQuery(function() {
     //Start from first invader phase (explore only)
     setPhase(4);
     nextStep();
-    
-});
-
-function init() {
-    
 }
 
 function nextStep() {
