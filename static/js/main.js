@@ -224,7 +224,7 @@ function drawCard(type) {
     }
 }
 
-// Function to set phase programmatically
+// Code to update phase list DOM
 function setPhase(index) {
 
     let clearDisplayPhases = [0, 1, 2, 5, 6, 7];
