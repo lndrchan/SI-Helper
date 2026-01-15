@@ -258,7 +258,8 @@ function setPhase(index) {
 
         if (phaseIndex === 0) {
             // Spirit phase special texts
-            
+            $('<ul></ul>')
+                .append()
         }
     }   
     
