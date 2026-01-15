@@ -59,7 +59,9 @@ jQuery(function() {
 
     // Logic about game setup. 
 
-    // If 
+    // If localstorage info present, read them
+
+    // If no localstorage info, initiate setup popup
     
 });
 
