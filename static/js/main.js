@@ -385,6 +385,7 @@ function updateInvaderBadge(showExplore) {
             badges[i].append(generateBadge('n'))
             continue;
         }
+        
         level = invaderLevelSeq[turn - i];
 
         if (i === 0 && !showExplore) {
