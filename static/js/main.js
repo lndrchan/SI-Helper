@@ -378,7 +378,9 @@ function updateInvaderBadge(showExplore) {
     for (let i = 0; i < 3; i++) {
         if (showExplore) {
             level = invaderLevelSeq[turn];
-
+            if (level === 1 || level === 2) {
+                
+            }
         }
         
         if (turn < 1) return;
