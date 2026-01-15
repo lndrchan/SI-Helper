@@ -395,23 +395,23 @@ function generateBadge(terrain) {
     
     switch (terrain) {
         case 'j': 
-            b.attr('background-color', '#26a56a');
+            b.css('background-color', '#26a56a');
             b.html('Jungle');
             break;
         case 'm': 
-            b.attr('background-color', '#606060');
+            b.css('background-color', '#606060');
             b.html('Mountain');
             break;
         case 's': 
-            b.attr('background-color', '#ffd26a');
+            b.css('background-color', '#ffd26a');
             b.html('Sand');
             break;
         case 'w': 
-            b.attr('background-color', '#73dcdf');
+            b.css('background-color', '#73dcdf');
             b.html('Wetland');
             break;
         case 'u': 
-            b.attr('background-color', '#000000');
+            b.css('background-color', '#000000');
             b.html('Unknown');
             break;
         case 'n': 
