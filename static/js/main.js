@@ -260,6 +260,7 @@ function setPhase(index) {
 
         if (phaseIndex === 0) {
             // Spirit phase special texts
+            listItem.removeClass('d-flex')
             $('<ul></ul>')
                 .append('<li>Growth options</li>')
                 .append('<li>Gain energy</li>')
