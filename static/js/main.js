@@ -287,6 +287,7 @@ function setPhase(index) {
         buildBadge = $('#phase-list-build-badge');
         exploreBadge = $('#phase-list-explore-badge');
 
+        // Add generated list item to phase list DOM
         listItem.appendTo(phaseList);
 
     }   
