@@ -260,7 +260,7 @@ function setPhase(index) {
 
         if (phaseIndex === 0) {
             // Spirit phase special texts
-            listItem.removeClass('d-flex')
+            listItem.removeClass('d-flex');
             $('<ul></ul>')
                 .append('<li>Growth options</li>')
                 .append('<li>Gain energy</li>')
@@ -269,12 +269,14 @@ function setPhase(index) {
         }
         else if (phaseIndex === 4) {
             // Fear card phase special texts (fear badge)
+            listItem.removeClass('d-flex');
             $('<span></span>')
                 .addClass('badge rounded-pill text-bg-primary fear-badge')
                 .attr('id', 'phase-list-fear-badge')
                 .appendTo(listItem);
         }
         else if (phaseIndex === 5) {
+            listItem.removeClass('d-flex');
             $('<ul></ul>')
                 .append('<li>Ravage: <span class="badge" id="phase-list-ravage-badge"> </span> </li>')
                 .append('<li>Build: <span class="badge" id="phase-list-build-badge"> </span> </li>')
