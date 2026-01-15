@@ -379,21 +379,21 @@ function updateInvaderBadge(showExplore) {
 
     for (let i = 0; i < 3; i++) {
 
-        //Explore badge first
+        // Explore badge first
         let levelIndex = turn - i;
         if (levelIndex < 0) {
             badges[i].append(generateBadge('n'))
             continue;
         }
-        
-        level = invaderLevelSeq[turn - i];
 
+        // If show explore is false, append 'unknown' badge and move on
         if (i === 0 && !showExplore) {
             exploreBadge.append(generateBadge('u'));
             continue;
         }
-        
-        level = invaderLevelSeq[turn];
+
+        level = invaderLevelSeq[turn - i];
+
         if (level === 1 || level === 2) {
             badges[i].append(generateBadge(invaderSeq[turn][1]));
         }
