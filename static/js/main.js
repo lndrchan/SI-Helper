@@ -281,6 +281,10 @@ function setPhase(index) {
                 .appendTo(listItem);
         }
 
+        ravageBadge = $('#phase-list-ravage-badge');
+        buildBadge = $('#phase-list-build-badge');
+        exploreBadge = $('#phase-list-explore-badge');
+
         listItem.appendTo(phaseList);
 
     }   
