@@ -18,7 +18,7 @@ var phaseListDict = {
     1: 'Fast Powers',
     2: 'Blighted Island Effect',
     3: 'Events',
-    4: 'Fear Cards <span class="badge badge-primary badge-pill fear-badge" id="phase-list-fear-badge">2</span>',
+    4: 'Fear Cards',
     5: 'Invader Phase   <ul><li>Ravage</li><li>Build</li><li>Explore</li></ul> </div>',
     6: 'Slow Powers',
     7: 'Time Passes'
@@ -268,11 +268,14 @@ function setPhase(index) {
                 .appendTo(listItem);
         }
         else if (phaseIndex === 4) {
-            // Fear card phase special texts
+            // Fear card phase special texts (fear badge)
             $('<span></span>')
                 .addClass('badge rounded-pill text-bg-primary fear-badge')
                 .attr('id', 'phase-list-fear-badge')
-                .appendTo(listItem)
+                .appendTo(listItem);
+        }
+        else if (phaseIndex === 5) {
+            
         }
 
         listItem.appendTo(phaseList);
