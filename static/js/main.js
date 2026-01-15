@@ -264,6 +264,7 @@ function setPhase(index) {
                 .addClass('badge badge-primary badge-pill fear-badge')
                 .attr('id', 'phase-list-fear-badge')
                 .appendTo(listItem);
+            updateFearBadge();
         }
         else if (phaseIndex === 5) {
             listItem.removeClass('d-flex');
@@ -272,6 +273,7 @@ function setPhase(index) {
                 .append('<li>Build: <span class="badge" id="phase-list-build-badge"> </span> </li>')
                 .append('<li>Explore: <span class="badge" id="phase-list-explore-badge"> </span> </li>')
                 .appendTo(listItem);
+            updateInvaderBadge();
         }
 
         // Update variables to newly generated phase list DOM
@@ -285,8 +287,6 @@ function setPhase(index) {
         listItem.appendTo(phaseList);
 
     }   
-
-    updateFearBadge();
 }
 
 function clearCardDisplay() {
