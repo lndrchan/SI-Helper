@@ -373,7 +373,7 @@ function generateBadge(terrain) {
             b.html('Sand');
             break;
         case 'w': 
-            b.attr('background-color', '$yellow-200');
+            b.attr('background-color', '$cyan-300');
             b.html('Wetland');
             break;
     }
