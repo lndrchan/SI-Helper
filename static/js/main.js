@@ -308,17 +308,14 @@ function updateInvaderCard(showExplore) {
 
     clearInvaderCard();
 
-    // Update explore card first
     for (let i = 0; i < 4; i++) {
         let img = document.createElement('img');
         img.classList.add('game-card', 'game-card-invader');
-        if (i === 0) {
-            if (!showExplore) {
-
-            }
-            else {
+        if (i === 3 && !showExplore) {
                 img.src = `/static/assets/invader/${invaderLevelSeq[turn]}.jpg`;
             }
+        else {
+            img.src = `/static/assets/invader/${invaderSeq[4 - i]}.jpg`;
         }
     }
 
