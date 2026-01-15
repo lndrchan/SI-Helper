@@ -132,7 +132,7 @@ function nextStep() {
 
     // Invader phase: flip explore card
     if (phase === 5) {
-        updateInvaderCardExplore();
+        updateInvaderCard();
         updateInvaderBadge(true);
         return;
     }
@@ -323,15 +323,6 @@ function updateInvaderCard(showExplore) {
         }
         invaderCards[i].append(img);
     }
-}
-
-function updateInvaderCardExplore() {
-    let img = document.createElement('img');
-    img.classList.add('game-card', 'game-card-invader');
-    img.src = `/static/assets/invader/${invaderSeq[turn]}.jpg`;
-
-    invaderCardExplore.html('');
-    invaderCardExplore.append(img);
 }
 
 function generateInvaderSeq(levelSeq) {
