@@ -155,12 +155,14 @@ function nextStep() {
         updateInvaderCard(false);
         updateInvaderBadge(false);
         turn--;
+        if (turn === 0) setPhase((phase + 1) % phaseListLength);
         return;
     }
 
     // Time passes: advance turn counter
     if (phase === 7) {
         turn++;
+        if (turn === 0) setPhase((phase + 1) % phaseListLength);
         return;
     }
 }
