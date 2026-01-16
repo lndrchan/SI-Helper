@@ -252,7 +252,10 @@ function updatePhaseList(index) {
 
     let children = phaseList.children();
     for (let i = 0; i < children.length; i++) {
-        if (i === 1) continue;
+        if (i === 1) {
+            children[i].removeClass('list-group-item-dark');
+            continue;
+        }
         children[i].remove();
     }
 
