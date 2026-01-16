@@ -69,6 +69,7 @@
 
 .fear-panel-top
 {
+    color: white;
     background-image: url('/assets/fear/back.jpg');
     background-position: center;
     text-align: right;
