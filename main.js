@@ -296,6 +296,17 @@ function setPhase(index) {
                 .append('<li>Explore: <span class="badge" id="phase-list-explore-badge"> </span> </li>')
                 .appendTo(listItem);
         }
+        else if (phaseIndex === 6) {
+            // Grey text out if game just started (skipping)
+            if (turn === 0) {
+                heading.addClass('text-body-tertiary');
+            }
+        }
+        else if (phaseIndex === 7) {
+            if (turn === 0) {
+                heading.addClass('text-body-tertiary');
+            }
+        }
 
         phaseListFearBadge = $('#phase-list-fear-badge');
 
