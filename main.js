@@ -250,14 +250,16 @@ function updatePhaseList(index) {
 
     phase = index;
 
-    let children = $('.list-group-item', phaseList);
+    let children = phaseList.children();
     for (let i = 0; i < children.length; i++) {
         if (i === 1) continue;
         children[i].remove();
     }
 
     // Make phase list dynamic HTML
-    for (let i = 1; i < maxPhaseListHeight; i++) {
+    for (let i = 0; i < maxPhaseListHeight; i++) {
+        if (i === 0 && phaseList.children().length > 0) continue;
+
         let phaseIndex = (i + phase - 1) % phaseListLength;
         if (phaseIndex < 0) phaseIndex = 7;
 
