@@ -49,6 +49,8 @@
 
 .btn
 {
+    margin-top: 6px;
+    margin-bottom: 6px;
     z-index: 9999;
     font-family: 'Cantora One';
     text-transform: uppercase;
