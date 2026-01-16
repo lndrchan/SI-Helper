@@ -224,11 +224,11 @@ function drawCard(type) {
         switch (type)
         {
             case 'fear':
-                img.src = `/assets/fear/${fearSeq[fearSeqIndex]}.jpg`;
+                img.src = `./assets/fear/${fearSeq[fearSeqIndex]}.jpg`;
                 fearSeqIndex++;
                 break;
             case 'event':
-                img.src = `/assets/event/${eventSeq[eventSeqIndex]}.jpg`;
+                img.src = `./assets/event/${eventSeq[eventSeqIndex]}.jpg`;
                 eventSeqIndex++;
                 break;
         }
@@ -364,10 +364,10 @@ function updateInvaderCard(showExplore) {
         let img = document.createElement('img');
         img.classList.add('game-card', 'game-card-invader');
         if (i === 0 && !showExplore) {
-            img.src = `/assets/invader/${invaderLevelSeq[turn]}.jpg`;
+            img.src = `./assets/invader/${invaderLevelSeq[turn]}.jpg`;
         }
         else {
-            img.src = `/assets/invader/${invaderSeq[turn - i]}.jpg`;
+            img.src = `./assets/invader/${invaderSeq[turn - i]}.jpg`;
         }
         invaderCards[i].append(img);
     }
