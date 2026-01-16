@@ -60,12 +60,6 @@
     /*background-image: url('/assets/fear/back.jpg') !important*/
 }
 
-.fear-panel.bottom
-{
-    width: 100%;
-    margin-top: 12px;
-    margin-bottom: 12px;
-}
 
 .fear-panel-top
 {
@@ -73,6 +67,19 @@
     background-image: url('/assets/fear/back.jpg');
     background-position: center;
     text-align: right;
+    font-family: 'Cantora One';
+}
+
+.fear-panel-top-title
+{
+    font-size: xx-large;
+}
+
+.fear-panel.bottom
+{
+    width: 100%;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 .left-bar,
