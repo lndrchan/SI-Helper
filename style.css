@@ -49,8 +49,9 @@
 .btn
 {
     margin-top: 12px;
-    z-index: 99;
+    z-index: 9999;
     font-family: 'Cantora One';
+    text-transform: uppercase;
 }
 
 #btn-next-phase
