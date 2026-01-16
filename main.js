@@ -308,6 +308,11 @@ function setPhase(index) {
             }
         }
 
+        if (i === 0) {
+            // Grey out last step text
+            listItem.addClass('text-body-tertiary');
+        }
+
         phaseListFearBadge = $('#phase-list-fear-badge');
 
         // Add generated list item to phase list DOM
