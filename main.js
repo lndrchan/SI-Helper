@@ -250,10 +250,9 @@ function updatePhaseList(index) {
 
     phase = index;
 
-    let children = $('.list-group-item', phaseList);
+    let children = $('.list-group-item', phaseList).removeClass('list-group-item-dark');
     for (let i = 0; i < children.length; i++) {
         if (i === 1) {
-            children[i].removeClass('list-group-item-dark');
             continue;
         }
         children[i].remove();
