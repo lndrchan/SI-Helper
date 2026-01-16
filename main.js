@@ -161,8 +161,8 @@ function nextStep() {
 
     // Time passes: advance turn counter
     if (phase === 7) {
-        turn++;
         if (turn === 0) setPhase((phase + 1) % phaseListLength);
+        turn++;
         return;
     }
 }
