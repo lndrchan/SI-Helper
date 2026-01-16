@@ -252,7 +252,7 @@ function updatePhaseList(index) {
     phaseList.empty();
 
     // Make phase list dynamic HTML
-    for (let i = 0; i < maxPhaseListHeight; i++) {
+    for (let i = 1; i < maxPhaseListHeight; i++) {
         let phaseIndex = (i + phase - 1) % phaseListLength;
         if (phaseIndex < 0) phaseIndex = 7;
 
