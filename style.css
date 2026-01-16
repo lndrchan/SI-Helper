@@ -55,7 +55,7 @@
 
 #btn-next-phase
 {
-    background-image: url('/static/assets/fear/back.jpg') !important
+    background-image: url('/assets/fear/back.jpg') !important
 }
 
 .fear-panel
@@ -119,6 +119,7 @@
 .phase-list-title
 {
     font-size: 1em;
+    font-family: 'Cantora One';
 }
 
 .invader-card-label
