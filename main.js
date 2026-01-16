@@ -199,9 +199,6 @@ function removeFear() {
 }
 
 function earnFearCard() {
-    if (earnedFearCards === 0) {
-        updatePhaseList(phase);
-    }
     earnedFearCards ++;
     updateFearBadge();
 }
@@ -246,9 +243,9 @@ function drawCard(type) {
 }
 
 // Code to update phase list DOM, used by nextStep function
-function updatePhaseList(index) {
+function updatePhaseList(newPhase) {
 
-    phase = index;
+    phase = newPhase;
 
     let children = $('.list-group-item', phaseList).removeClass('list-group-item-dark');
     for (let i = 0; i < children.length; i++) {
@@ -258,11 +255,15 @@ function updatePhaseList(index) {
         children[i].remove();
     }
 
+    let phaseIndex = 0;
+
     // Make phase list dynamic HTML
     for (let i = 0; i < maxPhaseListHeight; i++) {
+        // Preserve the element showing the last phase
         if (i === 0 && phaseList.children().length > 0) continue;
 
-        let phaseIndex = (i + phase - 1) % phaseListLength;
+        phaseIndex = (i + phase - 1) % phaseListLength;
+
         if (phaseIndex < 0) phaseIndex = 7;
 
         // Make list item container
