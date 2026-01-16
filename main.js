@@ -251,11 +251,11 @@ function updatePhaseList(index) {
     phase = index;
 
 
-    let children = $('#phase-list').$('.list-group-item');
+    let children = phaseList.$('.list-group-item');
     for (let i = 0; i < children.length; i++) {
-        
+        if (i === 1) continue;
+        phaseList.remo
     }
-    phaseList.empty();
 
     // Make phase list dynamic HTML
     for (let i = 1; i < maxPhaseListHeight; i++) {
