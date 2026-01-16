@@ -123,6 +123,11 @@ function nextStep() {
 
     updatePhaseList((phase + 1) % phaseListLength);
 
+    let clearDisplayPhases = [0, 1, 2, 5, 6, 7];
+    if (clearDisplayPhases.includes(index)) {
+        clearCardDisplay();
+    }
+
     if (phase === 3) {
         drawCard('event');
         return;
@@ -241,11 +246,6 @@ function drawCard(type) {
 
 // Code to update phase list DOM, used by nextStep function
 function updatePhaseList(index) {
-
-    let clearDisplayPhases = [0, 1, 2, 5, 6, 7];
-    if (clearDisplayPhases.includes(index)) {
-        clearCardDisplay();
-    }
 
     phase = index;
     phaseList.empty();
