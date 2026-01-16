@@ -64,7 +64,7 @@
 {
     color: white;
     border-radius: 12px;
-    background-image: url('/assets/fear/back.jpg');
+    background-image: url('./assets/fear/back.jpg');
     background-size: 130%;
     background-position-x: 40%;
     background-position-y: 15%;
