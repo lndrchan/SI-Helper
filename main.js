@@ -296,7 +296,6 @@ function updatePhaseList(index) {
             if (earnedFearCards === 0) {
                 heading.addClass('text-body-tertiary');
             }
-            updateFearBadge();
         }
         else if (phaseIndex === 5) {
             // Invader phase texts
@@ -325,6 +324,7 @@ function updatePhaseList(index) {
         }
 
         phaseListFearBadge = $('#phase-list-fear-badge');
+        updateFearBadge();
 
         // Add generated list item to phase list DOM
         listItem.appendTo(phaseList);
