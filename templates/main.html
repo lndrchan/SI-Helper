@@ -1,169 +1,191 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>SI Helper</title>
+		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+		
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cantora+One&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cantora+One&display=swap" rel="stylesheet">
 
-<div class="container-fluid">
-	<div class="row main-container">
-		<div class="col-md-3">
-			<div class="left-bar">
-				<h3>
-					Fear Cards
-				</h3>
-				<img src="{{ url_for('static', filename='assets/fear/back.jpg') }}" class="game-card game-card-side">
-				<div style="text-align: center">
-					Earned this turn: <span class="badge badge-primary badge-pill fear-badge" id="left-bar-fear-badge">2</span>
+
+      	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
+    <body>
+
+		<div class="container-fluid">
+			<div class="row main-container">
+				<div class="col-md-3">
+					<div class="left-bar">
+						<h3>
+							Fear Cards
+						</h3>
+						<img src="{{ url_for('static', filename='assets/fear/back.jpg') }}" class="game-card game-card-side">
+						<div style="text-align: center">
+							Earned this turn: <span class="badge badge-primary badge-pill fear-badge" id="left-bar-fear-badge">2</span>
+						</div>
+
+						<hr>
+
+						<div class="card fear-panel">
+							<h5 class="card-header">
+								Earned fear
+							</h5>
+							<div class="card-body">
+								<div class="progress">
+									<div class="progress-bar"
+										id='fear-progress'
+										role="progressbar"
+										style="width: 0%"
+										aria-valuenow="0"
+										aria-valuemin="0"
+										aria-valuemax="8">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<button type="button" class="btn btn-outline-primary" style="width:100%;" id='btn-add-fear'>
+							Generate fear
+						</button>
+					</div>
+
 				</div>
+				<div class="col-md-9">
+					<div class="row main-area">
+						<div class="col-md-3 phase-list-container">
+							<div class="list-group phase-list" id="phase-list">
+								<div class="list-group-item">
 
-				<hr>
+									<h3 class="phase-list-title">Spirit Phase</h3>
+									<ul>
+										<li>Growth options</li>
+										<li>Gain energy</li>
+										<li>Choose and pay for cards</li>
+									</ul>
+								</div>
+								<div class="list-group-item">
+									<h3 class="phase-list-title">Fast Powers</h3>
+								</div>
+								<div class="list-group-item">
+									<h3 class="phase-list-title">Blighted Island Effect</h3>
+								</div>
+								<div class="list-group-item">
+									<h3 class="phase-list-title">Events</h3>
+								</div>
+								<div class="list-group-item d-flex justify-content-between align-items-center">
+									<h3 class="phase-list-title">Fear Cards</h3>
+									<span class="badge badge-primary badge-pill fear-badge" id="phase-list-fear-badge">2</span>
+								</div>
+								<div class="list-group-item">
+									<h3 class="phase-list-title">Invader Phase</h3>
+									<ul>
+										<li>Ravage</li> <div id="phase-list-ravage-badge"></div>
+										<li>Build</li> <div id="phase-list-build-badge"></div>
+										<li>Explore</li> <div id="phase-list-explore-badge"></div>
+									</ul>
+								</div>
+								<div class="list-group-item">
+									<h3 class="phase-list-title">Slow Powers</h3>
+								</div>
 
-				<div class="card fear-panel">
-					<h5 class="card-header">
-						Earned fear
-					</h5>
-					<div class="card-body">
-						<div class="progress">
-							<div class="progress-bar"
-								id='fear-progress'
-								role="progressbar"
-								style="width: 0%"
-								aria-valuenow="0"
-								aria-valuemin="0"
-								aria-valuemax="8">
+							</div>
+							<div>
+								<button type="button" class="btn btn-outline-primary phase-list-btn" style="width:100%;" id="btn-next-phase">
+								Next step
+								</button>
+								
+								<button type="button" class="btn btn-outline-secondary phase-list-btn" style="width:100%;" id="btn-undo">
+									Undo
+								</button>
+							</div>
+							
+						</div>
+						<div class="col-md-6 main-card-display" id="main-card-display">
+							<img src="{{ url_for('static', filename='assets/fear/back.jpg') }}" class="game-card">
+						</div>
+						<div class="col-md-3">
+							<div class="right-bar">
+								<h3>
+									Current Terror Level: {{ terror_level }}
+								</h3>
+								<hr>
+								<h3>
+									Current Event for Turn
+								</h3>
+								<img src="{{ url_for('static', filename='assets/event/back.jpg') }}" class="game-card game-card-side">
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<button type="button" class="btn btn-outline-primary" style="width:100%;" id='btn-add-fear'>
-					Generate fear
-				</button>
-			</div>
-
-		</div>
-		<div class="col-md-9">
-			<div class="row main-area">
-				<div class="col-md-3 phase-list-container">
-					<div class="list-group phase-list" id="phase-list">
-						<div class="list-group-item">
-
-							<h3 class="phase-list-title">Spirit Phase</h3>
-							<ul>
-								<li>Growth options</li>
-								<li>Gain energy</li>
-								<li>Choose and pay for cards</li>
-							</ul>
-						</div>
-						<div class="list-group-item">
-							<h3 class="phase-list-title">Fast Powers</h3>
-						</div>
-						<div class="list-group-item">
-							<h3 class="phase-list-title">Blighted Island Effect</h3>
-						</div>
-						<div class="list-group-item">
-							<h3 class="phase-list-title">Events</h3>
-						</div>
-						<div class="list-group-item d-flex justify-content-between align-items-center">
-							<h3 class="phase-list-title">Fear Cards</h3>
-							<span class="badge badge-primary badge-pill fear-badge" id="phase-list-fear-badge">2</span>
-						</div>
-						<div class="list-group-item">
-							<h3 class="phase-list-title">Invader Phase</h3>
-							<ul>
-								<li>Ravage</li> <div id="phase-list-ravage-badge"></div>
-								<li>Build</li> <div id="phase-list-build-badge"></div>
-								<li>Explore</li> <div id="phase-list-explore-badge"></div>
-							</ul>
-						</div>
-						<div class="list-group-item">
-							<h3 class="phase-list-title">Slow Powers</h3>
+					<div class="row invader-area">
+						<div class="col-md-1">
 						</div>
 
-					</div>
-					<div>
-						<button type="button" class="btn btn-outline-primary phase-list-btn" style="width:100%;" id="btn-next-phase">
-						Next step
-						</button>
-						
-						<button type="button" class="btn btn-outline-secondary phase-list-btn" style="width:100%;" id="btn-undo">
-							Undo
-						</button>
-					</div>
-					
-				</div>
-				<div class="col-md-6 main-card-display" id="main-card-display">
-					<img src="{{ url_for('static', filename='assets/fear/back.jpg') }}" class="game-card">
-				</div>
-				<div class="col-md-3">
-					<div class="right-bar">
-						<h3>
-							Current Terror Level: {{ terror_level }}
-						</h3>
-						<hr>
-						<h3>
-							Current Event for Turn
-						</h3>
-						<img src="{{ url_for('static', filename='assets/event/back.jpg') }}" class="game-card game-card-side">
-					</div>
-				</div>
-			</div>
+						<div class="col-md-2 invader-card-display">
+							<div class="invader-card-label">
+								Discard
+							</div>
+							<div id="invader-card-fourth"> 
 
-			<div class="row invader-area">
-				<div class="col-md-1">
-				</div>
+							</div>
+						</div>
 
-				<div class="col-md-2 invader-card-display">
-					<div class="invader-card-label">
-						Discard
-					</div>
-					<div id="invader-card-fourth"> 
+						<div class="col-md-1">
+						</div>
 
-					</div>
-				</div>
+						<div class="col-md-2 invader-card-display">
+							<div class="invader-card-label">
+								Ravage
+							</div>
+							<div id="invader-card-ravage"> 
+								<img src="{{ url_for('static', filename='assets/invader/1s.jpg') }}" class="game-card game-card-invader">
+							</div>
+						</div>
 
-				<div class="col-md-1">
-				</div>
+						<div class="col-md-1">
+						</div>
+						<div class="col-md-2 invader-card-display">
+							<div class="invader-card-label">
+								Build
+							</div>
+							<div id="invader-card-build"> 
+								<img src="{{ url_for('static', filename='assets/invader/1w.jpg') }}" class="game-card game-card-invader">
+							</div>
+						</div>
 
-				<div class="col-md-2 invader-card-display">
-					<div class="invader-card-label">
-						Ravage
-					</div>
-					<div id="invader-card-ravage"> 
-						<img src="{{ url_for('static', filename='assets/invader/1s.jpg') }}" class="game-card game-card-invader">
-					</div>
-				</div>
+						<div class="col-md-1">
+						</div>
 
-				<div class="col-md-1">
-				</div>
-				<div class="col-md-2 invader-card-display">
-					<div class="invader-card-label">
-						Build
-					</div>
-					<div id="invader-card-build"> 
-						<img src="{{ url_for('static', filename='assets/invader/1w.jpg') }}" class="game-card game-card-invader">
-					</div>
-				</div>
-
-				<div class="col-md-1">
-				</div>
-
-				<div class="col-md-2 invader-card-display">
-					<div class="invader-card-label">
-						Explore
-					</div>
-					<div id="invader-card-explore"> 
-						<img src="{{ url_for('static', filename='assets/invader/1.jpg') }}" class="game-card game-card-invader">
-					</div>
-				</div>
+						<div class="col-md-2 invader-card-display">
+							<div class="invader-card-label">
+								Explore
+							</div>
+							<div id="invader-card-explore"> 
+								<img src="{{ url_for('static', filename='assets/invader/1.jpg') }}" class="game-card game-card-invader">
+							</div>
+						</div>
 
 
 
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
 
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
-{% endblock %}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  
+    </body>
+</html>
+
