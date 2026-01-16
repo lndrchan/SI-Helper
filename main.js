@@ -275,7 +275,7 @@ function setPhase(index) {
         else if (phaseIndex === 4) {
             // Fear card phase special texts (fear badge)
             $('<span></span>')
-                .addClass('badge badge-primary badge-pill fear-badge')
+                .addClass('badge badge-primary rounded-pill fear-badge')
                 .attr('id', 'phase-list-fear-badge')
                 .appendTo(listItem);
             updateFearBadge();
