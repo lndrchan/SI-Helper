@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
     <head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +20,183 @@
     </head>
 	
     <body>
+
+		<!-- Game Setup Modal -->
+		<div class="modal fade" id="setup-modal" tabindex="-1" role="dialog" aria-labelledby="gameSetupModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+			<div class="modal-dialog modal-dialog-centered modal-fullscreen" role="document">
+				<div class="modal-content">
+					<div class="modal-header" style="justify-content: center;">
+						<h1 class="modal-title" id="gameSetupModalLabel">Welcome to SI-Helper</h1>
+					</div>
+					<div class="modal-body">
+						<div class="row">
+							
+							<div class="col-md-1"></div>
+							<div class="col-md-4">
+								<form id="gameSetupForm">
+									<!-- Player Count -->
+									<div class="form-group">
+										<label class="font-weight-bold mb-3">Number of Players</label>
+										<div class="d-flex flex-wrap">
+											<div class="form-check">
+												<input class="form-check-input" type="radio" name="playerCount" id="player1" value="1">
+												<label class="form-check-label" for="player1">
+													1
+												</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="radio" name="playerCount" id="player2" value="2">
+												<label class="form-check-label" for="player2">
+													2 
+												</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="radio" name="playerCount" id="player3" value="3">
+												<label class="form-check-label" for="player3">
+													3
+												</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="radio" name="playerCount" id="player4" value="4">
+												<label class="form-check-label" for="player4">
+													4 
+												</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="radio" name="playerCount" id="player5" value="5">
+												<label class="form-check-label" for="player5">
+													5 
+												</label>
+											</div>
+											<div class="form-check">
+												<input class="form-check-input" type="radio" name="playerCount" id="player6" value="6">
+												<label class="form-check-label" for="player6">
+													6 
+												</label>
+											</div>
+										</div>
+										
+									</div>
+									<hr>
+									<!-- Adversary Choice -->
+									<div class="form-group mt-4">
+										<label class="font-weight-bold mb-3">Adversary</label>
+										<div class="form-check">
+											<input class="form-check-input adversary-radio" type="radio" name="adversary" id="advNone" value="none" data-image="">
+											<label class="form-check-label" for="advNone">
+												No Adversary
+											</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input adversary-radio" type="radio" name="adversary" id="advBrandenburg" value="brandenburg-prussia" data-image="prussia.jpg">
+											<label class="form-check-label" for="advBrandenburg">
+												Brandenburg-Prussia
+											</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input adversary-radio" type="radio" name="adversary" id="advEngland" value="england" data-image="england.jpg">
+											<label class="form-check-label" for="advEngland">
+												England
+											</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input adversary-radio" type="radio" name="adversary" id="advSweden" value="sweden" data-image="sweden.jpg">
+											<label class="form-check-label" for="advSweden">
+												Sweden
+											</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input adversary-radio" type="radio" name="adversary" id="advFrance" value="france" data-image="france.jpg">
+											<label class="form-check-label" for="advFrance">
+												France
+											</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input adversary-radio" type="radio" name="adversary" id="advHabsburg" value="habsburg" data-image="habsburg.jpg">
+											<label class="form-check-label" for="advHabsburg">
+												Habsburg Livestock
+											</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input adversary-radio" type="radio" name="adversary" id="advRussia" value="russia" data-image="russia.jpg">
+											<label class="form-check-label" for="advRussia">
+												Russia
+											</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input adversary-radio" type="radio" name="adversary" id="advScotland" value="scotland" data-image="scotland.jpg">
+											<label class="form-check-label" for="advScotland">
+												Scotland
+											</label>
+										</div>
+									</div>
+									
+									<!-- Adversary Level (conditional) -->
+									<div class="form-group mt-3" id="adversaryLevelGroup" style="display: none;">
+										<label for="adversaryLevel" class="font-weight-bold">Adversary Level</label>
+										<select class="form-control" id="adversaryLevel">
+											<option value="0">0</option>
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+										</select>
+									</div>
+									<hr>
+									<!-- Expansions -->
+									<div class="form-group mt-4">
+										<label class="font-weight-bold mb-3">Expansions Used</label>
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="branch-claw" id="expansionBranchClaw">
+											<label class="form-check-label" for="expansionBranchClaw">
+												Branch & Claw
+											</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="jagged-earth" id="expansionJaggedEarth">
+											<label class="form-check-label" for="expansionJaggedEarth">
+												Jagged Earth
+											</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="feather-flame" id="expansionFeatherFlame">
+											<label class="form-check-label" for="expansionFeatherFlame">
+												Feather & Flame
+											</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="natures-incarnate" id="expansionNaturesIncarnate">
+											<label class="form-check-label" for="expansionNaturesIncarnate">
+												Nature Incarnate
+											</label>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<!-- Preview Column -->
+							<div class="col-md-6">
+								<div class="adversary-preview-container container-glassmorphism">
+									<div id="adversaryPreview" class="adversary-preview">
+										<div class="preview-placeholder">
+											<i class="text-muted">Select an adversary to see preview</i>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-1"></div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" id="startGameBtn">Start Game</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
 
 		<div class="container-fluid">
 			<div class="row main-container">
@@ -62,49 +239,21 @@
 						</div>
 					</div>
 
+					<div>
+						<img src="assets/adversary/england.jpg" class="game-card" id="adversary-corner">
+					</div>
+
 				</div>
 				<div class="col-md-9">
 					<div class="row main-area">
 						<div class="col-md-3 phase-list-container">
 							<div class="list-group phase-list" id="phase-list">
-								<div class="list-group-item">
-
-									<h3 class="phase-list-title">Spirit Phase</h3>
-									<ul>
-										<li>Growth options</li>
-										<li>Gain energy</li>
-										<li>Choose and pay for cards</li>
-									</ul>
-								</div>
-								<div class="list-group-item">
-									<h3 class="phase-list-title">Fast Powers</h3>
-								</div>
-								<div class="list-group-item">
-									<h3 class="phase-list-title">Blighted Island Effect</h3>
-								</div>
-								<div class="list-group-item">
-									<h3 class="phase-list-title">Events</h3>
-								</div>
-								<div class="list-group-item d-flex justify-content-between align-items-center">
-									<h3 class="phase-list-title">Fear Cards</h3>
-									<span class="badge badge-primary badge-pill fear-badge" id="phase-list-fear-badge">2</span>
-								</div>
-								<div class="list-group-item">
-									<h3 class="phase-list-title">Invader Phase</h3>
-									<ul>
-										<li>Ravage</li> <div id="phase-list-ravage-badge"></div>
-										<li>Build</li> <div id="phase-list-build-badge"></div>
-										<li>Explore</li> <div id="phase-list-explore-badge"></div>
-									</ul>
-								</div>
-								<div class="list-group-item">
-									<h3 class="phase-list-title">Slow Powers</h3>
-								</div>
 
 							</div>
+
 							<div>
 								<button type="button" class="btn btn-outline-primary phase-list-btn" style="width:100%;" id="btn-next-phase">
-								Next step
+									Next step
 								</button>
 								
 								<button type="button" class="btn btn-outline-secondary phase-list-btn" style="width:100%;" id="btn-undo">
@@ -113,68 +262,77 @@
 							</div>
 							
 						</div>
-						<div class="col-md-6 main-card-display" id="main-card-display">
-							<img src="./assets/fear/back.jpg" class="game-card">
-						</div>
+
+						<div class="col-md-6 main-card-display container-glassmorphism" id="main-card-display"> </div>
+
 						<div class="col-md-3">
 							<div class="right-bar">
-								<h3>
-									Current Terror Level: {{ terror_level }}
-								</h3>
+								<img class="d-block w-100 game-card" src="assets/board/3.jpg">
+
 								<hr>
-								<h3>
-									Current Event for Turn
-								</h3>
-								<img src="./assets/event/back.jpg" class="game-card game-card-side">
+
+								<div class="card container-glassmorphism fear-panel-bottom" data-bs-theme="dark">
+									<div class="card-body">
+										<button type="button" class="btn btn-outline-primary" style="width:100%;" id='btn-add-fear'>
+											Special Actions
+										</button>
+										<button type="button" class="btn btn-outline-danger" style="width:100%;" onclick="startNewGame()">
+											New Game
+										</button>
+									</div>	
+								</div>
+
 							</div>
 						</div>
 					</div>
 
-					<div class="row invader-area">
-						<div class="col-md-1">
-						</div>
+					<div class="row invader-area container-glassmorphism">
 
-						<div class="col-md-2 invader-card-display">
+						<div class="col-md-2 invader-card-area">
+							<div class="invader-card-container id="invader-card-fourth"> 
+								
+							</div>
 							<div class="invader-card-label">
 								Discard
 							</div>
-							<div id="invader-card-fourth"> 
+						</div>
 
+						<div class="col-md-1 invader-card-arrow">
+							&lt;
+						</div>
+
+						<div class="col-md-2 invader-card-area">
+							<div class="invader-card-container" id="invader-card-ravage"> 
+								<img src="./assets/invader/1s.jpg" class="game-card game-card-invader">
 							</div>
-						</div>
-
-						<div class="col-md-1">
-						</div>
-
-						<div class="col-md-2 invader-card-display">
 							<div class="invader-card-label">
 								Ravage
 							</div>
-							<div id="invader-card-ravage"> 
-								<img src="./assets/invader/1s.jpg" class="game-card game-card-invader">
-							</div>
 						</div>
 
-						<div class="col-md-1">
+						<div class="col-md-1 invader-card-arrow">
+							&lt;
 						</div>
-						<div class="col-md-2 invader-card-display">
+
+						<div class="col-md-2 invader-card-area">
+							<div class="invader-card-container" id="invader-card-build"> 
+								<img src="./assets/invader/1w.jpg" class="game-card game-card-invader">
+							</div>
 							<div class="invader-card-label">
 								Build
 							</div>
-							<div id="invader-card-build"> 
-								<img src="./assets/invader/1w.jpg" class="game-card game-card-invader">
+						</div>
+
+						<div class="col-md-1 invader-card-arrow">
+							&lt;
+						</div>
+
+						<div class="col-md-2 invader-card-area">
+							<div class="invader-card-container" id="invader-card-explore"> 
+								<img src="./assets/invader/1.jpg" class="game-card game-card-invader">
 							</div>
-						</div>
-
-						<div class="col-md-1">
-						</div>
-
-						<div class="col-md-2 invader-card-display">
 							<div class="invader-card-label">
 								Explore
-							</div>
-							<div id="invader-card-explore"> 
-								<img src="./assets/invader/1.jpg" class="game-card game-card-invader">
 							</div>
 						</div>
 
@@ -184,6 +342,8 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="background-blur"></div>
 
 		<script src="main.js"></script>
 

@@ -4,11 +4,25 @@
   font-style: normal;
 }
 
-.main-container
+.background-blur
+{
+  position: fixed; /* or absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/board/board.jpg');
+  background-size: cover;
+  filter: blur(8px);
+  z-index: -1;
+
+}
+
+.container-fluid
 {
     padding: 24px;
-    background-color: floralwhite;
 }
+
 
 .main-card-display
 {
@@ -20,10 +34,45 @@
     align-items: center;
 }
 
-.invader-card-display
+.invader-area
+{
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 12px;
+    margin-top: 12px;
+    padding: 12px;
+}
+
+.invader-card-area
 {
     height: 100%;
     text-align: center;
+}
+
+.invader-card-container
+{
+    padding: 6px;
+    height: 80%;
+    border: dashed rosybrown 3px;
+    border-radius: 12px;
+}
+
+.invader-card-label
+{
+    margin-top: 12px;
+}
+
+.invader-card-arrow
+{
+    color: rosybrown;
+    display: flex;
+    align-items: center;
+    font-family: 'Cantora One';
+    font-size: 5em;
+    transform: translate(10%, -10%);
 }
 
 .game-card
@@ -42,6 +91,7 @@
 
 .game-card-invader
 {
+    height: 100%;
     width: 100%;
 }
 
@@ -57,19 +107,6 @@
 #btn-next-phase
 {
     /*background-image: url('/assets/fear/back.jpg') !important*/
-}
-
-
-.fear-panel-top
-{
-    color: white;
-    border-radius: 12px;
-    background-image: url('./assets/fear/back.jpg');
-    background-size: 130%;
-    background-position-x: 40%;
-    background-position-y: 15%;
-    text-align: right;
-    font-family: 'Cantora One';
 }
 
 .fear-panel-top-title
@@ -92,23 +129,41 @@
     padding: 24px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    font-family: 'Cantora One';
 }
 
-.main-area,
-.invader-area
+.left-bar
 {
-    padding: 12px;
+    color: white;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url('./assets/fear/back.jpg');
+    background-size: 150%;
+    background-position-x: 40%;
+    background-position-y: 20%;
+    text-align: right;
+}
+
+.right-bar{
+    color: white;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url('./assets/event/back.jpg');
+    background-size: 180%;
+    background-position-x: 40%;
+    background-position-y: 80%;
+}
+
+#adversary-corner
+{
+    width: 100%;
+}
+
+.adversary-display
+{
+    width: 90%
 }
 
 .main-area,
 .phase-list-container
 {
-    height: 60vh;
-}
-
-.invader-area
-{
-    height: 30vh;
+    height: 55vh;
 }
 
 .phase-list
@@ -172,3 +227,39 @@
   border-radius: 10px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
+
+#setup-modal .col-md-6 {
+    align-items: center;
+    height: 100%;
+}
+
+/* Adversary Preview Styles */
+.adversary-preview-container {
+    position: relative;
+    y: 50%;
+    border-radius: 12px;
+    padding: 12px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.adversary-preview-image {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.preview-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 300px;
+}
+
+.form-check {
+    margin-right: 36px;
+}
+
+

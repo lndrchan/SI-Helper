@@ -17,7 +17,7 @@ var maxPhaseListHeight = 4;
 var phaseListDict = {
     0: 'Spirit Phase',
     1: 'Fast Powers',
-    2: 'Blighted Island Effect',
+    2: 'Blighted Island',
     3: 'Events',
     4: 'Fear Cards',
     5: 'Invader Phase',
@@ -62,9 +62,14 @@ $(function() {
     // Logic about game setup. 
 
     // If localstorage info present, read them via init(). Fill in blanks by init generation. 
-    init()
-
+    if (ls.getItem('game')) {
+        init();
+    }
     // If no localstorage info, initiate setup popup
+    else {
+        
+        setup();
+    }
     
 });
 
@@ -84,10 +89,36 @@ function init() {
 
     phaseListLength = 8;
 
-    
-
     $('#btn-next-phase').on('click', function() {
         nextStep();
+    });
+
+    // Handle adversary selection and preview in setup modal
+    $('.adversary-radio').on('change', function() {
+        const selectedAdversary = $(this).val();
+        const imagePath = $(this).data('image');
+        
+        if (selectedAdversary !== 'none' && imagePath) {
+            // Show adversary level selector
+            $('#adversaryLevelGroup').slideDown();
+            
+            // Update preview with image
+            const previewHTML = `
+                <img src="./assets/adversary/${imagePath}" 
+                     class="game-card adversary-preview-image">
+            `;
+            $('#adversaryPreview').html(previewHTML);
+        } else {
+            // Hide adversary level selector
+            $('#adversaryLevelGroup').slideUp();
+            
+            // Show placeholder
+            $('#adversaryPreview').html(`
+                <div class="preview-placeholder">
+                    <i class="text-muted">No adversary selected</i>
+                </div>
+            `);
+        }
     });
     
     let e = $.Event('keydown');
@@ -118,7 +149,6 @@ function nextStep() {
         drawCard('fear');
         earnedFearCards--;
         updateFearBadge();
-        return;
     }
 
     updatePhaseList((phase + 1) % phaseListLength);
@@ -131,7 +161,6 @@ function nextStep() {
 
     if (phase === 3) {
         drawCard('event');
-        return;
     }
 
     if (phase === 4) {
@@ -143,7 +172,6 @@ function nextStep() {
             drawCard('fear');
             earnedFearCards--;
             updateFearBadge();
-            return;
         }
     }
 
@@ -151,7 +179,6 @@ function nextStep() {
     if (phase === 5) {
         updateInvaderCard(true);
         updateInvaderBadge(true);
-        return;
     }
 
     // Slow power phase: advance invader card
@@ -165,14 +192,14 @@ function nextStep() {
             updatePhaseList((phase + 2) % phaseListLength);
             turn++;
         }
-        return;
     }
 
     // Time passes: advance turn counter
     if (phase === 7) {
         turn++;
-        return;
     }
+
+    save();
 }
 
 function addFear() {
@@ -218,28 +245,24 @@ function updateFearBadge() {
 // Function to draw and display a random card
 function drawCard(type) {
 
-    if (cardDisplay) {
-        let img = document.createElement('img');
+    let img = document.createElement('img');
 
-        switch (type)
-        {
-            case 'fear':
-                img.src = `./assets/fear/${fearSeq[fearSeqIndex]}.jpg`;
-                fearSeqIndex++;
-                break;
-            case 'event':
-                img.src = `./assets/event/${eventSeq[eventSeqIndex]}.jpg`;
-                eventSeqIndex++;
-                break;
-        }
+    img.classList.add('game-card');
 
-        img.className = 'game-card';
-
-        clearCardDisplay();
-        cardDisplay.append(img);
-
-        console.log(`drawCard: ${type}`);
+    switch (type)
+    {
+        case 'fear':
+            img.src = `./assets/fear/${fearSeq[fearSeqIndex]}.jpg`;
+            fearSeqIndex++;
+            break;
+        case 'event':
+            img.src = `./assets/event/${eventSeq[eventSeqIndex]}.jpg`;
+            eventSeqIndex++;
+            break;
     }
+
+    clearCardDisplay();
+    cardDisplay.append(img);
 }
 
 // Code to update phase list DOM, used by nextStep function
@@ -303,7 +326,7 @@ function updatePhaseList(newPhase) {
         else if (phaseIndex === 5) {
             // Invader phase texts
             listItem.removeClass('d-flex');
-            $('<ul></ul>')
+            $('<ul style="list-style-type:none; padding-left: 20px;"></ul>')
                 .append('<li>Ravage: <span class="badge" id="phase-list-ravage-badge"> </span> </li>')
                 .append('<li>Build: <span class="badge" id="phase-list-build-badge"> </span> </li>')
                 .append('<li>Explore: <span class="badge" id="phase-list-explore-badge"> </span> </li>')
@@ -341,8 +364,31 @@ function updatePhaseList(newPhase) {
     }   
 }
 
+function save() {
+
+}
+
+function setup() {
+
+    ls.clear();
+
+    $('#setup-modal').modal('show');
+
+    /*
+    if (confirm('Start a new game? This will erase your current game.')) {
+        localStorage.setItem('game', false);
+        location.reload();
+    }
+        */
+}
+
+function startNewGame() {
+    
+    location.reload();
+}
+
 function clearCardDisplay() {
-    cardDisplay.html('');
+    cardDisplay.empty();
 }
 
 function clearInvaderCard() {
