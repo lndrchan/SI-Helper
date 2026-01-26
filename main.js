@@ -361,6 +361,8 @@ function setup() {
     adversary = $('input[name="adversary"]:checked').val();
     adversaryLevel = $('#adversaryLevel').val() || 0;
 
+    fearMax = playerCount * 4;
+
     invaderLevelSeq = adversaryConfig[adversary].invader[adversaryLevel];
     fearLevelSeq = adversaryConfig[adversary].fear[adversaryLevel];
 
