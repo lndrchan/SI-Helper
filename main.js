@@ -295,7 +295,7 @@ function advancePhase(count) {
     }
 }
 
-function generatePhastListItem(index) {
+function generatePhaseListItem(index) {
 
     // Make list item container
     let listItem = $(document.createElement('div'))
@@ -351,6 +351,8 @@ function generatePhastListItem(index) {
             heading.addClass('text-body-tertiary');
         }
     }
+
+    return listItem;
 }
 
 function setup() {
