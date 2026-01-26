@@ -126,11 +126,6 @@ $(function() {
     else {
         setupModal.modal('show');
     }
-
-    //Start from first invader phase (explore only)
-    updatePhaseList(4);
-    nextStep();
-    
 });
 
 
