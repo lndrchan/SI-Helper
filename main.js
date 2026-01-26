@@ -401,10 +401,13 @@ function load() {
     playerCount = gameData.playerCount;
     adversary = gameData.adversary;
     adversaryLevel = gameData.adversaryLevel;
-    phase = gameData.phase;
+    
     invaderSeq = gameData.invaderSeq;
     invaderSeqIndex = gameData.invaderSeqIndex;
+    eventSeq = gameData.eventSeq;
+    eventSeqIndex = gameData.eventSeqIndex;
     
+    phase = gameData.phase;
 
     updatePhaseList(phase);
 }
