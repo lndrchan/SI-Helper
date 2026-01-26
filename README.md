@@ -13,6 +13,6 @@ Amount of fear tokens earned and fear cards earned are dynamically displayed on 
 ##### Card Drawing
 Fear cards and event cards are automatically drawn when the corresponding phases have been reached. 
 
-##### Special Actions
-Actions that influence the setup of the invader board (e.g. England 6, )
+##### Special Actions (*Under Development*)
+Actions that influence the setup of the invader board (e.g. England 6, Fractured Days) will be supported via a dedicated menu accessed via a single click. 
 
