@@ -140,7 +140,7 @@ function nextStep() {
         updateFearBadge();
     }
 
-    advancePhaseList((phase + 1) % phaseListLength);
+    advancePhase(1);
 
     // Clear main display if moving away from draw card phase
     let clearDisplayPhases = [0, 1, 2, 5, 6, 7];
@@ -155,7 +155,7 @@ function nextStep() {
     if (phase === 4) {
         if (earnedFearCards === 0) {
             // Skip fear card phase if there is no earned fear card
-            advancePhaseList(1);
+            advancePhase(1);
         }
         else {
             drawCard('fear');
@@ -179,7 +179,7 @@ function nextStep() {
         updateInvaderBadge(false);
         turn--;
         if (turn === 0) {
-            advancePhaseList(2); // Advance twice to skip to first spirit phase if it is turn 0
+            advancePhase(2); // Advance twice to skip to first spirit phase if it is turn 0
             turn++;
         }
     }
@@ -256,7 +256,7 @@ function drawCard(type) {
 }
 
 // Code to update phase list DOM, used by nextStep function
-function advancePhaseList(count) {
+function advancePhase(count) {
 
     for (let i = 0; i < count; i++) {
         phase = (phase + 1) % phaseListLength;
@@ -380,7 +380,7 @@ function setup() {
     generateInvaderSeq(invaderLevelSeq);
 
     //Start from first invader phase (explore only)
-    advancePhaseList(4);
+    advancePhase(4);
     nextStep();
 }
 
@@ -416,7 +416,7 @@ function load() {
     
     phase = gameData.phase;
 
-    advancePhaseList(phase);
+    advancePhase(phase);
 }
 
 function startNewGame() {
