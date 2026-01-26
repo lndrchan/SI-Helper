@@ -378,7 +378,7 @@ function setup() {
     generateInvaderSeq(invaderLevelSeq);
 
     //Start from first invader phase (explore only)
-    advancePhaseList(4);
+    advancePhaseList();
     nextStep();
 }
 
