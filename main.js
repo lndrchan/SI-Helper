@@ -260,8 +260,12 @@ function drawCard(type) {
 // Code to update phase list DOM, used by nextStep function
 function advancePhase(count) {
 
-    for (let i = 0; i < count; i++) {
+    if ($('.list-group-item', phaseList).length <= 0) {
         
+    }
+
+    for (let i = 0; i < count; i++) {
+
         phase = (phase + 1) % phaseListLength;
 
         let children = $('.list-group-item', phaseList);
