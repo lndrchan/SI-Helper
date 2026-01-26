@@ -404,13 +404,6 @@ function setup() {
     
     localStorage.setItem('gameData', JSON.stringify(gameData));
     console.log('Game setup saved:', gameSetup);
-
-    /*
-    if (confirm('Start a new game? This will erase your current game.')) {
-        localStorage.setItem('game', false);
-        location.reload();
-    }
-        */
 }
 
 function load() {
