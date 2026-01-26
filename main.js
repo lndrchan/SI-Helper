@@ -16,7 +16,7 @@ var adversary = '';
 var adversaryLevel = 0;
 
 var phaseList = null;
-var phaseListLength = 0;
+var phaseListLength = 8;
 var maxPhaseListHeight = 4;
 // Headings for phase list
 var phaseListDict = {
