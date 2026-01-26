@@ -361,7 +361,7 @@ function setup() {
     adversaryLevel = $('#adversaryLevel').val() || 0;
 
     invaderLevelSeq = adversaryConfig[adversary].invader[adversaryLevel];
-    console.log(adversaryConfig[adversary].invader)
+    console.log(invaderLevelSeq)
 
     fearSeq = generateSeq(50);
     eventSeq = generateSeq(62);
