@@ -135,13 +135,6 @@ function init() {
             $('#gameSetupModal').modal('hide');
         }
     });
-    
-    let e = $.Event('keydown');
-    e.which = 13;
-    $('input').trigger(e, function() {
-        nextStep();
-    })
-
  
     $('#btn-add-fear').on('click', function() {
         addFear();
