@@ -396,7 +396,7 @@ function setup() {
 }
 
 function load() {
-
+    let gameData = localStorage.getItem('gameData', JSON.parse())
 }
 
 function startNewGame() {
