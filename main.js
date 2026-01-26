@@ -264,7 +264,8 @@ function advancePhase(count) {
     if ($('.list-group-item', phaseList).length <= 0) {
         phaseList.empty();
         for (let i = 0; i < maxPhaseListHeight; i++) {
-            index = (phase + i - 1) % 7;
+            index = (phase + i - 1) % phaseListLength;
+            phaseList.append(generatePhaseListItem(i));
         }
     }
 
@@ -310,7 +311,7 @@ function generatePhaseListItem(index) {
         .html(phaseListDict[phase])
         .appendTo(listItem);
         
-    if (phase === 0) {
+    if (index === 0) {
         // Spirit phase special texts
         listItem.removeClass('d-flex');
         $('<ul></ul>')
