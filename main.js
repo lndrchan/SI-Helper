@@ -269,9 +269,9 @@ function advancePhase(count) {
         if (children && children.length === maxPhaseListHeight) {
             children[0].remove();
 
-            children[0].removeClass('list-group-item-dark');
-            $('.phase-list-title', children[0]).addClass('text-body-tertiary');
-            children[1].addClass('list-group-item-dark');
+            children[0].classList.remove('list-group-item-dark');
+            $('.phase-list-title', children[0]).classList.add('text-body-tertiary');
+            children[1].classList.add('list-group-item-dark');
         }
         
 
