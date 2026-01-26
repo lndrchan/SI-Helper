@@ -280,9 +280,7 @@ function advancePhase(count) {
             children[1].classList.add('list-group-item-dark');
         }
 
-        // Make list item container
-        let listItem = $(document.createElement('div'))
-            .addClass('list-group-item d-flex justify-content-between align-items-center');
+        
 
         // Make heading
         let heading = $('<b></b>')
@@ -307,49 +305,49 @@ function advancePhase(count) {
 
 function generatePhastListItem(index) {
     if (phase === 0) {
-            // Spirit phase special texts
-            listItem.removeClass('d-flex');
-            $('<ul></ul>')
-                .append('<li>Growth options</li>')
-                .append('<li>Gain energy</li>')
-                .append('<li>Choose and pay for cards</li>')
-                .appendTo(listItem);
+        // Spirit phase special texts
+        listItem.removeClass('d-flex');
+        $('<ul></ul>')
+            .append('<li>Growth options</li>')
+            .append('<li>Gain energy</li>')
+            .append('<li>Choose and pay for cards</li>')
+            .appendTo(listItem);
+    }
+    else if (index === 4) {
+        // Fear card phase special texts (fear badge)
+        $('<span></span>')
+            .addClass('badge badge-primary rounded-pill fear-badge')
+            .attr('id', 'phase-list-fear-badge')
+            .appendTo(listItem);
+        if (earnedFearCards === 0) {
+            heading.addClass('text-body-tertiary');
         }
-        else if (phase === 4) {
-            // Fear card phase special texts (fear badge)
-            $('<span></span>')
-                .addClass('badge badge-primary rounded-pill fear-badge')
-                .attr('id', 'phase-list-fear-badge')
-                .appendTo(listItem);
-            if (earnedFearCards === 0) {
-                heading.addClass('text-body-tertiary');
-            }
+    }
+    else if (index === 5) {
+        // Invader phase texts
+        listItem.removeClass('d-flex');
+        let invaderPhaseDescription = $('<ul style="list-style-type:none; padding-left: 20px;"></ul>');
+        invaderPhaseDescription.append('<li>Ravage: <span class="badge" id="phase-list-ravage-badge"> </span> </li>')
+        invaderPhaseDescription.append('<li>Build: <span class="badge" id="phase-list-build-badge"> </span> </li>')
+        if (invaderSeq[turn][0] === 2 && invaderSeq[turn][1] != 'c') {
+            invaderPhaseDescription.append('<li>Explore: <span class="badge" id="phase-list-explore-badge"> </span> + Escalation</li>')
         }
-        else if (phase === 5) {
-            // Invader phase texts
-            listItem.removeClass('d-flex');
-            let invaderPhaseDescription = $('<ul style="list-style-type:none; padding-left: 20px;"></ul>');
-            invaderPhaseDescription.append('<li>Ravage: <span class="badge" id="phase-list-ravage-badge"> </span> </li>')
-            invaderPhaseDescription.append('<li>Build: <span class="badge" id="phase-list-build-badge"> </span> </li>')
-            if (invaderSeq[turn][0] === 2 && invaderSeq[turn][1] != 'c') {
-                invaderPhaseDescription.append('<li>Explore: <span class="badge" id="phase-list-explore-badge"> </span> + Escalation</li>')
-            }
-            else {
-                invaderPhaseDescription.append('<li>Explore: <span class="badge" id="phase-list-explore-badge"> </span> </li>')
-            }
-            invaderPhaseDescription.appendTo(listItem);
+        else {
+            invaderPhaseDescription.append('<li>Explore: <span class="badge" id="phase-list-explore-badge"> </span> </li>')
         }
-        else if (phase === 6) {
-            // Grey text out if game just started (skipping)
-            if (turn === 0) {
-                heading.addClass('text-body-tertiary');
-            }
+        invaderPhaseDescription.appendTo(listItem);
+    }
+    else if (index === 6) {
+        // Grey text out if game just started (skipping)
+        if (turn === 0) {
+            heading.addClass('text-body-tertiary');
         }
-        else if (phase === 7) {
-            if (turn === 0) {
-                heading.addClass('text-body-tertiary');
-            }
+    }
+    else if (index === 7) {
+        if (turn === 0) {
+            heading.addClass('text-body-tertiary');
         }
+    }
 }
 
 function setup() {
