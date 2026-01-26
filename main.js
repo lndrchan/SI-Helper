@@ -273,7 +273,6 @@ function advancePhase(count) {
             $('.phase-list-title', children[0]).addClass('text-body-tertiary');
             children[1].classList.add('list-group-item-dark');
         }
-        
 
         // Make list item container
         let listItem = $(document.createElement('div'))
