@@ -380,7 +380,7 @@ function updatePhaseList(newPhase) {
 function save() {
     const gameData = {
         playerCount: playerCount,
-        adversary: $('input[name="adversary"]:checked').val(),
+        adversary: adversary,
         adversaryLevel: $('#adversaryLevel').val() || 0,
         expansions: getSelectedExpansions(),
         createdAt: new Date().toISOString(),
