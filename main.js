@@ -387,7 +387,17 @@ function setup() {
 
     ls.clear();
 
-    $('#setup-modal').modal('show');
+    const gameSetup = {
+        playerCount: $('input[name="playerCount"]:checked').val(),
+        adversary: $('input[name="adversary"]:checked').val(),
+        adversaryLevel: $('#adversaryLevel').val() || 0,
+        expansions: getSelectedExpansions(),
+        createdAt: new Date().toISOString(),
+        currentPhase: 0
+    };
+    
+    localStorage.setItem('spiritIslandGame', JSON.stringify(gameSetup));
+    console.log('Game setup saved:', gameSetup);
 
     /*
     if (confirm('Start a new game? This will erase your current game.')) {
