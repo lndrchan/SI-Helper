@@ -91,8 +91,6 @@ function init() {
     phaseList = $('#phase-list');
     fearProgress = $('#fear-progress');
 
-    phaseListLength = 8;
-
     $('#btn-next-phase').on('click', function() {
         nextStep();
     });
