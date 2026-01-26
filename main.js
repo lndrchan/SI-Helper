@@ -264,6 +264,7 @@ function advancePhase(count) {
         phase = (phase + 1) % phaseListLength;
 
         let children = $('.list-group-item', phaseList);
+        console.log(children);
         // Only perform children manipulation if phase list is fully populated
         if (children && children.length === maxPhaseListHeight) {
             children[0].remove();
