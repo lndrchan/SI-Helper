@@ -140,7 +140,7 @@ function nextStep() {
         updateFearBadge();
     }
 
-    updatePhaseList((phase + 1) % phaseListLength);
+    advancePhaseList((phase + 1) % phaseListLength);
 
     // Clear main display if moving away from draw card phase
     let clearDisplayPhases = [0, 1, 2, 5, 6, 7];
@@ -155,7 +155,7 @@ function nextStep() {
     if (phase === 4) {
         if (earnedFearCards === 0) {
             // Skip fear card phase if there is no earned fear card
-            updatePhaseList((phase + 1) % phaseListLength);
+            advancePhaseList((phase + 1) % phaseListLength);
         }
         else {
             drawCard('fear');
@@ -179,7 +179,7 @@ function nextStep() {
         updateInvaderBadge(false);
         turn--;
         if (turn === 0) {
-            updatePhaseList((phase + 2) % phaseListLength);
+            advancePhaseList((phase + 2) % phaseListLength);
             turn++;
         }
     }
@@ -256,9 +256,7 @@ function drawCard(type) {
 }
 
 // Code to update phase list DOM, used by nextStep function
-function updatePhaseList(newPhase) {
-
-    phase = newPhase;
+function advancePhaseList() {
 
     let children = $('.list-group-item', phaseList);
     children[0].remove();
@@ -393,7 +391,7 @@ function setup() {
     generateInvaderSeq(invaderLevelSeq);
 
     //Start from first invader phase (explore only)
-    updatePhaseList(4);
+    advancePhaseList(4);
     nextStep();
 }
 
@@ -429,7 +427,7 @@ function load() {
     
     phase = gameData.phase;
 
-    updatePhaseList(phase);
+    advancePhaseList(phase);
 }
 
 function startNewGame() {
