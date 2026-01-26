@@ -405,6 +405,10 @@ function setup() {
         */
 }
 
+function load() {
+    
+}
+
 function startNewGame() {
     
     
