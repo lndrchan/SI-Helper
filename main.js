@@ -8,8 +8,6 @@
 // 6: Slow power
 // 7: time passes
 
-const { event } = require("jquery");
-
 var phase = 0;
 var playerCount = 0;
 var adversary = '';
@@ -116,13 +114,11 @@ $(function() {
         }
     });
 
-    init();
-
     // Logic about game setup. 
 
     // If localstorage info present, read them via init(). Fill in blanks by init generation. 
     if (ls.getItem('game')) {
-        init();
+        
     }
     // If no localstorage info, initiate setup popup
     else {
