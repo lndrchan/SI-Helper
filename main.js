@@ -391,7 +391,7 @@ function setup() {
         playerCount: $('input[name="playerCount"]:checked').val(),
         adversary: $('input[name="adversary"]:checked').val(),
         adversaryLevel: $('#adversaryLevel').val() || 0,
-        currentPhase: 0
+        phase: phase
     };
     
     localStorage.setItem('spiritIslandGame', JSON.stringify(gameData));
@@ -406,7 +406,7 @@ function setup() {
 }
 
 function load() {
-    
+
 }
 
 function startNewGame() {
