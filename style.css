@@ -82,6 +82,11 @@
     margin-right: auto;
 }
 
+.invader-card{
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
 .game-card-side
 {
     border-radius: 12px;
