@@ -107,9 +107,16 @@
     text-transform: uppercase;
 }
 
-#btn-next-phase
+.special-action-btn {
+    text-transform: none;
+    display: inline;
+}
+
+.remove-fear-btn
 {
-    /*background-image: url('/assets/fear/back.jpg') !important*/
+    height: 2em;
+    font-size: 0.8em;
+    padding-top: 0.1em;
 }
 
 .fear-panel-top
@@ -317,5 +324,40 @@
     margin-right: 36px;
 }
 
+#special-actions-model {
+    font-family: 'Cantora One';
+}
+
+/* Credits Modal */
+#credits-modal {
+    font-family: 'Cantora One';
+}
+
+#credits-modal hr {
+    margin: 6px;
+}
+
+#credits-modal .modal-content {
+    border-radius: 12px;
+}
+
+#credits-modal .modal-header {
+    border-radius: 10px 10px 0 0;
+}
+
+#credits-modal .btn-lg {
+    padding: 6px;
+    font-size: 1em;
+}
+
+#credits-modal .d-grid {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
 .inverted {filter:invert(100%)}
 .brightness {filter: brightness(100%);}
+.clear{
+    clear:both;
+}
+

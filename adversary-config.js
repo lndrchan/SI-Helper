@@ -1,4 +1,5 @@
 const adversaryNameDict = {
+    'none': 'None',
     'prussia': 'Brandenburg-Prussia',
     'england': 'England',
     'sweden': 'Sweden',
@@ -9,9 +10,18 @@ const adversaryNameDict = {
     'habsburg-mining': 'Habsburg (Mining Expedition)'
 }
 
+const invaderCardDict = {
+    'w': 'Wetland',
+    's': 'Sand',
+    'j': 'Jungle',
+    'm': 'Mountain',
+    'c': 'Coast',
+    'ss': 'Salt'
+}
+
 const adversaryConfig = {
 
-    'template-adversary': {
+    'none': {
         'fear': [
             [],
             [],
@@ -194,7 +204,7 @@ const adversaryConfig = {
             [],
             [],
             [],
-            [1,1,1,2,'2a',2,2,3,3,3,3,3],
+            [1,1,1,2,'s',2,2,3,3,3,3,3],
             [],
             []
         ]
