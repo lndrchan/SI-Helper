@@ -6,6 +6,12 @@ Welcome to Spirit Island Tracker. This is a webapp created to replace the invade
 
 This tool does not cover all aspects of the game (yet). **DO NOT USE THIS TOOL** if you are playing a game including any of the following: 
 
+- Actions that would place 2 Invader Cards in the same slot
+    - Russia Level 5 or above
+    - Habsburg Mining Expedition Level 4 or above
+- Use scenarios at your own discretion. Any scenarios that change the Invader Board setup are generally not supported.
+- **If you would like to see a feature added or report a broken feature, please consider sending feedback with the 'Bug Reports and Feature Suggestions' button under the 'Credits and Feedback' menu. **
+
 
 # Features
 
