@@ -10,7 +10,8 @@ This tool does not cover all aspects of the game (yet). **DO NOT USE THIS TOOL**
     - Russia Level 5 or above
     - Habsburg Mining Expedition Level 4 or above
 - Use scenarios at your own discretion. Any scenarios that change the Invader Board setup are generally not supported.
-- **If you would like to see a feature added or report a broken feature, please consider sending feedback with the 'Bug Reports and Feature Suggestions' button under the 'Credits and Feedback' menu. **
+- Vertical screens are not supported. Please use a sufficiently sized horizontal screen (laptops, tablets etc.) and adjust text size as needed. 
+- **If you would like to see a feature added or report a broken feature, please consider sending feedback with the 'Bug Reports and Feature Suggestions' button under the 'Credits and Feedback' menu.**
 
 
 # Features
