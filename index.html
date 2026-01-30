@@ -219,12 +219,12 @@
 
 						<hr>
 
-						<h1 class="card-title fear-panel-top-title"><span class="badge text-bg-dark" id="fear-cards-next-level">1</span></h1>
-						<p>cards until next Terror Level</p>
+						<span class="badge text-bg-dark fear-panel-top-title" id="fear-cards-next-level">1</span>
+						cards until next Terror Level
 
 						<hr>
 
-						<p>Earned this turn: <span class="badge badge-primary rounded-pill fear-badge" id="left-bar-fear-badge">2</span></p>
+						<p>Earned this turn: <span class="badge text-bg-dark fear-badge" id="left-bar-fear-badge">2</span></p>
 
 						<hr>
 
@@ -267,7 +267,9 @@
 
 						<p>
 							Adversary: <span class="badge text-bg-dark" id="adversary-name-display">Brandenburg-Prussia 6</span> 
-							<button type="button" id="show-adversary-card-btn" class="btn btn-secondary btn-small" onclick="showAdversaryCard()">Show Adversary Card</button>
+							<button type="button" id="show-adversary-card-btn" class="btn btn-secondary btn-sm" onclick="showAdversaryCard()">Show Adversary Card</button>
+							<button type="button" id="show-recent-event-btn" class="btn btn-secondary btn-sm" onclick="displayCard('event',eventSeq[eventSeqIndex-1])">Show Most Recent Event Card</button>
+							<button type="button" id="show-recent-fear-btn" class="btn btn-secondary btn-sm" onclick="displayCard('fear',fearSeq[fearSeqIndex-1])">Show Most Recent Fear Card</button>
 						</p>
 
 						<hr>
@@ -395,14 +397,16 @@
 							<div>
 								Slave Rebellion (Event)
 								<button type="button" class="btn btn-warning special-action-btn" onclick="slaveRebellion(0)">
-									Small Uprising (Invader Stage I)
+									Small Uprising (Invader Stage I or II)
 								</button>
 
 								<button type="button" class="btn btn-danger special-action-btn" onclick="slaveRebellion(1)">
-									Rebellion (Invader Stage II)
+									Rebellion (Invader Stage III)
 								</button>
 							</div>
 						</div>
+
+						<hr>
 
 						<div class="special-action-section">
 							<b>Fractured Days Split the Sky (Visions of a Shifting Future)</b>
@@ -440,13 +444,7 @@
 								</button>
 							</div>
 						</div>
-						
-						<hr>
 
-						
-						
-
-						
 					</div>
 					<div class="modal-footer justify-content-center">
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

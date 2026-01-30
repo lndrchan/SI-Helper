@@ -96,6 +96,8 @@
 .game-card-invader
 {
     height: 100%;
+    margin-left: 3px;
+    margin-right: 3px;
 }
 
 .btn
@@ -126,8 +128,7 @@
 
 .fear-panel-top-title
 {
-    font-size: 4em;
-    margin-bottom: 24px;
+    margin: 0px 3px 0px 3px;
 }
 
 .fear-panel-bottom
@@ -175,7 +176,7 @@
 
 .left-bar-bottom
 {
-    height: 30vh;
+    height: 35vh;
     margin-top: 12px;
     text-align: center;
 }

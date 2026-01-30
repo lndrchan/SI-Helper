@@ -324,19 +324,19 @@ function drawCard(type) {
             fearSeqIndex++;
             if (fearSeqIndex >= fearSeq.length) {
                 fearSeq = generateSeq(fearSeq.length);
+                fearSeqIndex = 0;
             }
             break;
         case 'event':
             displayCard('event', eventSeq[eventSeqIndex])
+            if (eventSeq[eventSeqIndex] === 1) alert(`Slave Rebellion has been drawn. After performing the printed actions, please choose how it will be resolved under the 'Special Actions' menu. `)
             eventSeqIndex++;
             if (eventSeqIndex >= eventSeq.length) {
                 eventSeq = generateSeq(eventSeq.length);
+                eventSeqIndex = 0;
             }
             break;
     }
-
-    clearCardDisplay();
-    cardDisplay.append(img);
 }
 
 function displayCard(type, id) {
@@ -466,7 +466,7 @@ function generatePhaseListItem(phaseIndex) {
             .addClass('phase-list-icon inverted'));
 
         $('<span></span>')
-            .addClass('badge badge-primary rounded-pill fear-badge')
+            .addClass('badge text-bg-dark fear-badge')
             .attr('id', 'phase-list-fear-badge')
             .css('float', 'right')
             .html(earnedFearCards)
@@ -562,11 +562,15 @@ function setup() {
     fearSeq = generateSeq(50);
     eventSeq = generateSeq(62);
     // France 2 special rule (Slave Rebellion is event/1.jpg)
-    if (adversary === 'france' && adversaryLevel >= 2) {
-        for (let i = 0; i < eventSeq.length; i++) {
-            if (eventSeq[i] === 1) {
+    for (let i = 0; i < eventSeq.length; i++) {
+        if (eventSeq[i] === 1) {
+            if (adversary === 'france' && adversaryLevel >= 2) {
                 eventSeq[i] = eventSeq[3];
-                eventSeq[3] = 1;  
+                eventSeq[3] = 1; 
+            }
+            else {
+                // Remove event card 1 if not using Slave Rebellion
+                eventSeq.splice(i, 1);
             }
         }
     }
@@ -650,6 +654,7 @@ function load(index) {
 function undo() {
     saveIndex--;
     load(saveIndex-1);
+    save();
 }
 
 function updateUI() {
