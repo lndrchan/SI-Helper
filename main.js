@@ -734,16 +734,13 @@ function advanceInvaderCard() {
     let img = document.createElement('img');
     img.classList.add('game-card', 'game-card-invader');
 
-        let stage = invaderSeq[turn][0];
-        if (!NaN(stage)) {
-            img.src = `./assets/invader/${stage}.jpg`;
-        } else {
-            img.src = `./assets/invader/${stage}-back.jpg`;
-        }
+    let stage = invaderSeq[turn][0];
+    if (!NaN(stage)) {
+        img.src = `./assets/invader/${stage}.jpg`;
+    } else {
+        img.src = `./assets/invader/${stage}-back.jpg`;
     }
-    else {
-        img.src = `./assets/invader/${invaderSeq[turn - i]}.jpg`;
-    }
+
     invaderCardExplore.append(img);
 }
 
