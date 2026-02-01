@@ -663,6 +663,7 @@ function updateUI() {
     updateTerrorLevel();
     updateFearBadge();
     generatePhaseList();
+    updateInvaderCard();
 
     // If in invader phase, show explore. 
     if (phase === 5) {advanceInvaderCard(true)} else {advanceInvaderCard(false)}
@@ -690,8 +691,6 @@ function updateUI() {
             displayCard('adversary', adversary);
         }
     }
-
-    updateInvaderCard();
     
     let redrawEnabledPhases = [3,4];
     if (redrawEnabledPhases.includes(phase)) {
