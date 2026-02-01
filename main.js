@@ -733,7 +733,10 @@ function updateInvaderCard(showExplore) {
 
     invaderCards = [invaderCardExplore, invaderCardBuild, invaderCardRavage, invaderCardFourth];
 
+    // Start from explore
     for (let i = 0; i < 4; i++) {
+
+        invadercards[i].html()
         if (i > turn) return;
 
         let img = document.createElement('img');
