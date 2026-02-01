@@ -761,6 +761,10 @@ function advanceInvaderCard() {
     invaderCardExplore.append(img);
 }
 
+function generateInvaderCard(code) {
+
+}
+
 function generateInvaderSeq(levelSeq) {
 
     // levelSeq: defined in adversary-config under each 'invader' section
