@@ -918,6 +918,7 @@ function displayCardHistory(type,step) {
     switch (type){
         case 'event': 
             cardHistoryEventIndex += step;
+            if (cardHistoryEventIndex < eventSeqIndex-1) 
             displayCard('event', cardHistoryEventIndex);
         case 'fear': 
             cardHistoryFearIndex += step;
