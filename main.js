@@ -939,6 +939,18 @@ function displayCardHistory(type,step) {
             displayCard('event', eventSeq[cardHistoryEventIndex]);
         case 'fear': 
             cardHistoryFearIndex += step;
+            if (cardHistoryEventIndex < eventSeqIndex-1) {
+                nextEventBtn.removeAttr('disabled');
+            } else {
+                cardHistoryEventIndex = eventSeqIndex-1;
+                nextEventBtn.attr('disabled','');
+            }
+            if (cardHistoryEventIndex > 0) {
+                lastEventBtn.attr('disabled','')
+            } else {
+                cardHistoryEventIndex = 0;
+                lastEventBtn.removeAttr('disabled')
+            }
             displayCard('fear', cardHistoryFearIndex);
     }
 }
