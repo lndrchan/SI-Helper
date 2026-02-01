@@ -736,11 +736,8 @@ function clearCardDisplay() {
 function showExploreCard() {
     invaderCards[3] = [];
     nextCard = invaderSeq[turn];
-    if (!isNaN(nextCard[0])) {
-        invaderCards[3].push(invaderSeq[turn][0]);
-    } else {
-        invaderCards[3].push(invaderSeq[turn]);
-    }
+    invaderCards[3].push(invaderSeq[turn]);
+    updateInvaderCard();
 }
 
 function advanceInvaderCard() {
