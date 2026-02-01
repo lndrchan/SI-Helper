@@ -725,7 +725,7 @@ function startNewGame() {
 }
 
 function showAdversaryCard() {
-    if (adversary === 'none') return;
+    if (adversary === 'none') clearCardDisplay;
     displayCard('adversary', adversary);
 }
 
