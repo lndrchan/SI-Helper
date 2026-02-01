@@ -220,6 +220,7 @@ function nextStep() {
         $('#redraw-btn').attr('disabled','');
     }
 
+    updateUI();
     save();
 }
 
