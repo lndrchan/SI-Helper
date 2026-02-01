@@ -360,7 +360,7 @@ function advancePhaseList(count) {
 
     // If phase list empty, populate it before anything else
     if ($('.list-group-item', phaseList).length < phaseListDisplayLength) {
-        generatePhaseList();
+        updatePhaseList();
     }
 
     for (let i = 0; i < count; i++) {
@@ -402,7 +402,7 @@ function advancePhaseList(count) {
     //console.log('Advanced phase by ' + count);
 }
 
-function generatePhaseList() {
+function updatePhaseList() {
     
     phaseList.empty();
     //console.log('Phase list emptied');
@@ -662,7 +662,7 @@ function undo() {
 function updateUI() {
     updateTerrorLevel();
     updateFearBadge();
-    generatePhaseList();
+    updatePhaseList();
     updateInvaderCard();
 
     // If in invader phase, show explore. 
