@@ -574,12 +574,9 @@ function setup() {
     generateInvaderSeq(invaderLevelSeq);
     invaderCards = [[],[],[],[invaderSeq[0]]];
 
+    phase = 5;
     updateUI();
 
-    // Start from first invader phase (explore only)
-    // Advance phase 4 times then call nextstep to advance once more while loading card display graphics
-    advancePhaseList(4);
-    nextStep();
 }
 
 function save() {
