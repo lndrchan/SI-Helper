@@ -933,10 +933,10 @@ function displayCardHistory(type,step) {
                 nextEventBtn.attr('disabled','');
             }
             if (cardHistoryEventIndex > 0) {
-                lastEventBtn.attr('disabled','')
+                lastEventBtn.removeAttr('disabled')
             } else {
                 cardHistoryEventIndex = 0;
-                lastEventBtn.removeAttr('disabled')
+                lastEventBtn.attr('disabled','')
             }
             displayCard('event', eventSeq[cardHistoryEventIndex]);
         case 'fear': 
@@ -948,10 +948,10 @@ function displayCardHistory(type,step) {
                 nextFearBtn.attr('disabled','');
             }
             if (cardHistoryFearIndex > 0) {
-                lastFearBtn.attr('disabled','')
+                lastFearBtn.removeAttr('disabled')
             } else {
                 cardHistoryFearIndex = 0;
-                lastFearBtn.removeAttr('disabled')
+                lastFearBtn.attr('disabled','')
             }
             displayCard('fear', fearSeq[cardHistoryFearIndex]);
     }
