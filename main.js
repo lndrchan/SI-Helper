@@ -751,6 +751,7 @@ function advanceInvaderCard() {
     } else {
         invaderCards[3].push(invaderSeq[turn]);
     }
+    updateInvaderCard();
 }
 
 function generateInvaderCard(code) {
