@@ -151,6 +151,12 @@ $(function() {
 // Checks if advance phase or if there are things that need resolving. 
 function nextStep() {
 
+    if (phase === 5 && turn === 0) {
+        advancePhaseList(3); // Advance twice to skip to first spirit phase if it is turn 0
+        turn++;
+        return;
+    }
+
     // Check before phase advance: if at fear card phase and still has unresolved fear card, 
     // do not advance phase
     if (phase === 4 && earnedFearCards > 0) {
@@ -199,10 +205,7 @@ function nextStep() {
 
     // Slow power phase: advance invader card
     if (phase === 6) {
-        if (turn === 0) {
-            advancePhaseList(2); // Advance twice to skip to first spirit phase if it is turn 0
-            turn++;
-        }
+        advanceInvaderCard();
     }
 
     if (phase === 7) {
