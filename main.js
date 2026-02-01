@@ -736,18 +736,22 @@ function updateInvaderCard(showExplore) {
     // Start from explore
     for (let i = 0; i < 4; i++) {
 
+        if (i === 0) {
+            let img = document.createElement('img');
+            img.classList.add('game-card', 'game-card-invader');
+            if (i === 0 && !showExplore) {
+                img.src = `./assets/invader/${invaderSeq[turn][0]}.jpg`;
+            }
+            else {
+                img.src = `./assets/invader/${invaderSeq[turn - i]}.jpg`;
+            }
+            invaderCardExplore.append(img);
+        }
+        
         invadercards[i].html()
         if (i > turn) return;
 
-        let img = document.createElement('img');
-        img.classList.add('game-card', 'game-card-invader');
-        if (i === 0 && !showExplore) {
-            img.src = `./assets/invader/${invaderSeq[turn][0]}.jpg`;
-        }
-        else {
-            img.src = `./assets/invader/${invaderSeq[turn - i]}.jpg`;
-        }
-        invaderCards[i].append(img);
+        
     }
 }
 
