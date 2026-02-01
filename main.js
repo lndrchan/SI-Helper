@@ -219,13 +219,6 @@ function nextStep() {
         
     }
 
-    let redrawEnabledPhases = [3,4];
-    if (redrawEnabledPhases.includes(phase)) {
-        $('#redraw-btn').removeAttr('disabled');
-    } else {
-        $('#redraw-btn').attr('disabled','');
-    }
-
     updateUI();
     save();
 }
