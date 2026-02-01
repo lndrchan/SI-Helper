@@ -918,7 +918,7 @@ function displayCardHistory(type,step) {
         case 'fear': 
             cardHistoryFearIndex = fearSeqIndex-1;
             displayCard('fear', fearSeq[fearSeqIndex-1]);
-            lastFearBtn.removeAttr('disabled');
+            if (cardHistoryFearIndex <= 0) lastFearBtn.attr('disabled',''); else lastFearBtn.removeAttr('disabled');
             nextFearBtn.attr('disabled','');
             return;
         }
