@@ -411,7 +411,7 @@ function advancePhaseList(count) {
     //console.log('Advanced phase by ' + count);
 }
 
-function generatePhaseList() {
+function updatePhaseList() {
     
     phaseList.empty();
     //console.log('Phase list emptied');
