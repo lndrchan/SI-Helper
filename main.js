@@ -735,7 +735,7 @@ function advanceInvaderCard() {
     invaderCards = [invaderCardFourth, invaderCardRavage, invaderCardBuild, invaderCardExplore];
 
     // Start left to right
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 3; i++) {
         invaderCards[i].html(invaderCards[i+1].html());
     }
     invaderCardExplore.empty();
