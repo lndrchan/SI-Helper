@@ -734,11 +734,13 @@ function clearCardDisplay() {
 }
 
 function showExploreCard() {
-    invaderCardExplore.empty();
-    let img = document.createElement('img');
-    img.classList.add('game-card', 'game-card-invader');
-    img.src = `./assets/invader/${invaderSeq[turn]}.jpg`;
-    invaderCardExplore.append(img);
+    invaderCards[3] = [];
+    nextCard = invaderSeq[turn];
+    if (!isNaN(nextCard[0])) {
+        invaderCards[3].push(invaderSeq[turn][0]);
+    } else {
+        invaderCards[3].push(invaderSeq[turn]);
+    }
 }
 
 function advanceInvaderCard() {
