@@ -736,7 +736,7 @@ function advanceInvaderCard() {
 
     // Start left to right
     for (let i = 0; i < 4; i++) {
-        invadercards[i].html(invadercards[i+1].html());
+        invaderCards[i].html(invaderCards[i+1].html());
     }
     invaderCardExplore.empty();
     let img = document.createElement('img');
