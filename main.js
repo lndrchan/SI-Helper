@@ -680,6 +680,16 @@ function updateUI() {
         $('#show-adversary-card-btn').hide();
     }
     
+    // Clear main display if moving away from draw card phase
+    let clearDisplayPhases = [0, 1, 2, 5, 6, 7];
+    if (clearDisplayPhases.includes(phase)) {
+        if (adversary === 'none') {
+            clearCardDisplay();
+        } else {
+            displayCard('adversary', adversary);
+        }
+    }
+    
     let redrawEnabledPhases = [3,4];
     if (redrawEnabledPhases.includes(phase)) {
         $('#redraw-btn').removeAttr('disabled');
