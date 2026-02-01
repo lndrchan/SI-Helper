@@ -663,7 +663,6 @@ function load(index) {
 function undo() {
     saveIndex--;
     load(saveIndex-1);
-    save();
 }
 
 function updateUI() {
