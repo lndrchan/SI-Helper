@@ -157,10 +157,10 @@ function nextStep() {
     advancePhaseList(1);
 
     // Clear main display if moving away from draw card phase
-    /*let clearDisplayPhases = [0, 1, 2, 5, 6, 7];
+    let clearDisplayPhases = [0, 1, 2, 5, 6, 7];
     if (clearDisplayPhases.includes(phase)) {
-        clearCardDisplay();
-    }*/
+        displayCard('adversary', adversary);
+    }
 
     if (phase === 0) {
         turn++;
