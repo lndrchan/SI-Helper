@@ -682,7 +682,7 @@ function updateUI() {
     
     $('#total-turn-count-display').html(invaderLevelSeq.length);
     
-    $('#invader-level-sequence').html(invaderLevelSeq.slice(turn).toString());
+    $('#invader-level-sequence').html(invaderLevelSeq.slice(turn).join(' '));
 
     $('#player-count-display').html(playerCount);
     if (adversary !== 'none') {
