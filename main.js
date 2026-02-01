@@ -752,7 +752,7 @@ function generateInvaderCard(code) {
     let img = $('<img>').addClass('game-card game-card-invader');
     let stage = code[0];
     if (!isNaN(stage)) {
-        img.attr('src', `./assets/invader/${stage}.jpg`);
+        img.attr('src', `./assets/invader/${code}.jpg`);
     } else {
         img.attr('src', `./assets/invader/${stage}-back.jpg`);
     }
