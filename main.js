@@ -923,6 +923,12 @@ function displayCardHistory(type,step) {
             } else {
                 nextEventBtn.attr('disabled','');
             }
+            if (cardHistoryEventIndex > 0) {
+                lastEventBtn.attr('disabled','')
+            } else {
+                cardHistoryEventIndex = 0;
+                lastEventBtn.removeAttr('disabled')
+            }
             displayCard('event', cardHistoryEventIndex);
         case 'fear': 
             cardHistoryFearIndex += step;
