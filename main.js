@@ -199,10 +199,6 @@ function nextStep() {
 
     // Slow power phase: advance invader card
     if (phase === 6) {
-        clearInvaderCard();
-        turn++;
-        advanceInvaderCard();
-        turn--;
         if (turn === 0) {
             advancePhaseList(2); // Advance twice to skip to first spirit phase if it is turn 0
             turn++;
