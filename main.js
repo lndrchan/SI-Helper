@@ -202,8 +202,6 @@ function nextStep() {
         if (turn === 0) {
             advancePhaseList(2); // Advance twice to skip to first spirit phase if it is turn 0
             turn++;
-            $('#turn-count-display').html(turn);
-            $('#total-turn-count-display').html(invaderLevelSeq.length);
         }
     }
 
