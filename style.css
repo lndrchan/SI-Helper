@@ -29,6 +29,7 @@
     display: flex;
     border:  1px solid gray;
     border-radius: 12px;
+    padding: 12px;
     height: 100%;
     justify-content: center; 
     align-items: center;
@@ -139,9 +140,14 @@
 .game-card
 {
     border-radius: 12px;
-    height: 80%;
+    height: 100%;
     margin-left: 12px;
     margin-right: 12px;
+}
+
+.game-card-h{
+    width: 100%;
+    height: auto;
 }
 
 
@@ -246,11 +252,6 @@
 .terror-level-display
 {
     height: 5em;
-}
-
-#adversary-corner
-{
-    width: 100%;
 }
 
 .adversary-display

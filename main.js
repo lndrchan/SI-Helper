@@ -415,6 +415,7 @@ function drawCard(type) {
 function displayCard(type, id) {
     let img = document.createElement('img');
     img.classList.add('game-card');
+    if (type === 'adversary') img.classList.add('game-card-h');
     img.src = `./assets/${type}/${id}.jpg`;
 
     clearCardDisplay();
@@ -790,7 +791,7 @@ function updateUI() {
     }
 
     // Clear main display if moving away from draw card phase
-    let clearDisplayPhases = [0, 1, 2, 5, 6, 7];
+    let clearDisplayPhases = [0, 1, 5, 6, 7];
     if (clearDisplayPhases.includes(phase)) {
         if (adversary === 'none') {
             clearCardDisplay();
@@ -826,6 +827,10 @@ function initUI() {
         $('#invader-card-label-build'), 
         $('#invader-card-label-explore')
     ];
+
+    $('#invader-card-label-ravage').html('Ravage');
+    $('#invader-card-label-build').html('Build');
+    $('#invader-card-label-explore').html('Explore');
 
     if (adversary !== 'none') {
         $('#adversary-name-display').html(adversaryNameDict[adversary] + ' ' + adversaryLevel);
@@ -891,15 +896,21 @@ function advanceInvaderCard() {
 
     invaderCards[3] = [];
     nextCard = invaderSeq[invaderSeqIndex+1];
-    if (!isNaN(nextCard[0])) {
-        invaderCards[3].push(nextCard[0]);
-    } else {
-        invaderCards[3].push(nextCard);
+    if (nextCard) {
+        if (!isNaN(nextCard[0])) {
+            invaderCards[3].push(nextCard[0]);
+        } else {
+            invaderCards[3].push(nextCard);
+        }
     }
-
+    
     invaderSeqIndex++;
     if (invaderSeqIndex === invaderLevelSeq.length) {
+        alert('This is the last turn before time runs out...')
+    }
+    if (invaderSeqIndex > invaderLevelSeq.length) {
         alert('You have reached the end of the Invader Deck. The Invaders have taken over the Island...')
+        return;
     }
 
     updateInvaderCard();

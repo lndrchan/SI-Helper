@@ -12,7 +12,8 @@ I will try my best to respond to any feedback and suggestions. However, since I 
 
 - Set up the board game with the following components as usual: 
     - Spirit Boards, Cards and Tokens (Energy, Power Decks and any associated pieces)
-    - Island Boards and Tokens (Invader pieces, Blight)
+    - Island Boards and Tokens (Invader pieces)
+    - **Skip drawing the Blight Card but keep the reserve of Blight Tokens as if they were placed on the Card**. This tool will track the Blight Card drawn throughout the game. 
 - You do **not** need to set up the following: 
     - Fear Deck and Terror Level indicator
     - Event Deck
